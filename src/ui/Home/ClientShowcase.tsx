@@ -49,61 +49,61 @@ const ClientShowcase: React.FC = () => {
     },
     {
       name: "ALX Project",
-      logo: "/src/assets/img/Alx.PNG",
+      logo: "/Alx.PNG",
       project: "Advanced Learning Experience",
       category: "Education & Training"
     },
     {
       name: "Documentation",
-      logo: "/src/assets/img/IMG_7396.jpg",
+      logo: "/IMG_7396.jpg",
       project: "Professional Documentation",
       category: "Content Creation"
     },
     {
       name: "Brand Development",
-      logo: "/src/assets/img/IMG_7434.PNG",
+      logo: "/IMG_7434.PNG",
       project: "Brand Identity Design",
       category: "Visual Design"
     },
     {
       name: "Project Management",
-      logo: "/src/assets/img/IMG_7445.JPG",
+      logo: "/IMG_7445.JPG",
       project: "Project Coordination",
       category: "Management"
     },
     {
       name: "Content Strategy",
-      logo: "/src/assets/img/IMG_7449.JPG",
+      logo: "/IMG_7449.JPG",
       project: "Strategic Content Planning",
       category: "Marketing"
     },
     {
       name: "Client's Testimony",
-         logo: "/src/assets/img/IMG_7452.PNG",
+         logo: "/IMG_7452.PNG",
       project: "Testimony",
       category: "Testimonies"
     },
     {
       name: "Data Analysis",
-      logo: "/src/assets/img/IMG_8309.PNG",
+      logo: "/IMG_8309.PNG",
       project: "Comprehensive Data Analysis",
       category: "Research & Analytics"
     },
     {
       name: "Business Intelligence",
-      logo: "/src/assets/img/IMG_8310.PNG",
+      logo: "/IMG_8310.PNG",
       project: "BI Solutions & Reporting",
       category: "Data & Research"
     },
     {
       name: "Marketing Campaign",
-      logo: "/src/assets/img/IMG_8311.PNG",
+      logo: "/IMG_8311.PNG",
       project: "Digital Marketing Strategy",
       category: "Marketing"
     },
     {
       name: "Financial Planning",
-      logo: "/src/assets/img/IMG_8312.PNG",
+      logo: "/IMG_8312.PNG",
       project: "Financial Strategy & Planning",
       category: "Financial Admin"
     }

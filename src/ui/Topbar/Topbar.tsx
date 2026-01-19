@@ -24,14 +24,14 @@ export const Topbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
+      setScrolled(window.scrollY > 60)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   return (
-    <header className={`fixed top-0 z-50 w-full bg-transparent transition-all duration-300`}>
+    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white shadow-sm' : 'bg-transparent'}`}>
       <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4">
         <a className="flex items-center space-x-3 group" href="/">
           <span className="font-bold text-lg text-[#7d4934] group-hover:opacity-80 transition-opacity">Josephine</span>
@@ -64,14 +64,6 @@ export const Topbar = () => {
                     href="#projects"
                   >
                     Projects
-                  </NavigationMenuLink>
-                </NavigationMenuItem>
-                <NavigationMenuItem>
-                  <NavigationMenuLink
-                    className={cn(navigationMenuTriggerStyle(), "bg-transparent text-black hover:bg-black/5 hover:text-black border-none px-4 py-2 transition-all duration-200")}
-                    href="#services"
-                  >
-                    Services
                   </NavigationMenuLink>
                 </NavigationMenuItem>
                 <NavigationMenuItem>

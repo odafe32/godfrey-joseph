@@ -66,7 +66,7 @@ const TestimonialCard = () => {
               <div className="w-full">
                 <div className="w-full h-64 lg:h-96 rounded-2xl overflow-hidden shadow-lg">
                   <img 
-                    src="/src/assets/img/IMG_7452.PNG" 
+                    src="/img/IMG_7452.PNG" 
                     alt="Margaret Auta" 
                     className="w-full h-full object-cover"
                   />

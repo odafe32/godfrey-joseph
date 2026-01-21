@@ -72,20 +72,20 @@ const AboutSection = () => {
                 Josephine Chibuike
               </h3>
               <p className="text-[#7d4934] font-medium text-lg">
-                Virtual Assistant | Administrative & Creative Support Specialist
+               Brand Strategist | Virtual Assistant | Administrative Support
               </p>
             </div>
 
             <p className="text-gray-600 leading-relaxed text-lg">
-              I'm a passionate and detail-oriented Virtual Assistant with hands-on experience supporting busy professionals, entrepreneurs, and creative brands. From managing schedules to creating proposals that convert, I bring order, clarity, and creativity into every workspace I support.
+              I'm a passionate Brand Strategist and detail-oriented Virtual Assistant with hands-on experience supporting busy professionals, entrepreneurs, and creative brands. From developing brand strategies to managing schedules and creating proposals that convert, I bring order, clarity, and creativity into every workspace I support.
             </p>
 
             <p className="text-gray-600 leading-relaxed text-lg">
-              Over time, I've had the privilege of working with diverse clients across different industries, from entertainment managers and hairstylists to real estate consultants and e-commerce brands. My work has ranged from LinkedIn optimization, outreach emails, and proposal development to data entry, invoicing, and calendar management.
+              Over time, I've had the privilege of working with diverse clients across different industries, from entertainment managers and hairstylists to real estate consultants and e-commerce brands. My work has ranged from brand strategy development and LinkedIn optimization to outreach emails, proposal development, data entry, invoicing, and calendar management.
             </p>
 
             <p className="text-gray-600 leading-relaxed text-lg">
-              What sets me apart is my ability to adapt quickly, learn new tools, and stay proactive even in fast-paced environments. I'm not just here to complete tasks. I'm here to help businesses grow efficiently through organization, communication, and strategy.
+              What sets me apart is my ability to adapt quickly, learn new tools, and stay proactive even in fast-paced environments. I'm not just here to complete tasks. As a Brand Strategist, I'm here to help businesses grow efficiently through organization, communication, and strategic brand development.
             </p>
 
             <p className="text-gray-600 leading-relaxed text-lg">
@@ -93,13 +93,17 @@ const AboutSection = () => {
             </p>
 
             <div className="pt-6">
+                            <a href="mailto:josephinechibuike17@gmail.com"  target='blank'>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#7d4934] text-white px-8 py-3 rounded-full font-medium hover:bg-[#7d4934]/90 transition-colors duration-300"
+                className="bg-[#7d4934] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#7d4934]/90 transition-all duration-300 shadow-lg"
               >
-                Get in Touch
+             
+               Get in touch
+              
               </motion.button>
+               </a>
             </div>
           </motion.div>
 

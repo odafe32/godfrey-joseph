@@ -16,7 +16,7 @@ const HeroSection = () => {
     },
     {
       number: "02", 
-      title: "Brand & LinkedIn Support",
+      title: "Brand Support",
       icon: Compass
     },
     {

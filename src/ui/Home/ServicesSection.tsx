@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
-import { Users, Calendar, Plane, FileText, Database, DollarSign, ArrowRight, Check, Coins, CoinsIcon, FolderArchive, Linkedin } from 'lucide-react';
+import { Users, Calendar, Plane, FileText, Database, DollarSign, ArrowRight, Check, Coins, CoinsIcon, FolderArchive, Linkedin, BrickWallShieldIcon } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: Linkedin,
-      title: "LinkedIn Management",
-      description: "Account optimisation, content strategy, and engagement to elevate your professional presence.",
-      features: ["Profile Optimization", "Content Strategy", "Outreach Campaigns", "Analytics & Reporting"],
+      icon: BrickWallShieldIcon,
+      title: "Brand Management",
+      description: " content strategy, and engagement to elevate your professional presence.",
+      features: [ "Content Strategy", "Outreach Campaigns", "Analytics & Reporting"],
       popular: true
     },
     {
@@ -120,14 +120,20 @@ const ServicesSection = () => {
                   ))}
                 </div>
 
-                <motion.button 
+
+                <motion.div 
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="w-full py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 bg-gray-100 text-gray-900 hover:bg-[#7d4934] hover:text-white hover:shadow-lg"
+                  className="w-full"
                 >
-                  <span>Get Started</span>
-                  <ArrowRight className="w-4 h-4" />
-                </motion.button>
+                  <a 
+                    href="#contact"
+                    className="w-full py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 bg-gray-100 text-gray-900 hover:bg-[#7d4934] hover:text-white hover:shadow-lg block"
+                  >
+                    <span>Get Started</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </a>
+                </motion.div>
               </motion.div>
             );
           })}
@@ -148,14 +154,17 @@ const ServicesSection = () => {
               I offer tailored packages to meet your specific business needs. Let's discuss your requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                 <a href="https://calendly.com/josephinechibuike17/brand-strategy-consultation" target='blank'>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-[#7d4934] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#7d4934]/90 transition-all duration-300 shadow-lg"
               >
-                Schedule Consultation
-              </motion.button>
              
+                Schedule Consultation
+              
+              </motion.button>
+               </a>
             </div>
           </div>
         </motion.div>

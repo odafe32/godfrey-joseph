@@ -149,14 +149,14 @@ const PortfolioShowcase: React.FC = () => {
           </p>
           
           {/* CTA Button */}
-          <button className="group relative inline-flex items-center gap-3 bg-[#7d4934] hover:bg-[#7d4934]/90 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl animate-[fadeInUp_1s_ease-out] [animation-delay:0.6s] [animation-fill-mode:both]">
+          {/* <button className="group relative inline-flex items-center gap-3 bg-[#7d4934] hover:bg-[#7d4934]/90 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl animate-[fadeInUp_1s_ease-out] [animation-delay:0.6s] [animation-fill-mode:both]">
             <span>See more Projects</span>
             <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
               <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
               </svg>
             </div>
-          </button>
+          </button> */}
         </div>
 
         {/* 3D Carousel */}

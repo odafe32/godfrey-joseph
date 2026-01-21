@@ -95,11 +95,12 @@ const Footer = () => {
             >
               Helping you work smarter, not harder. Executive virtual assistance and brand support services that elevate your business.
             </motion.p>
-            
-            <motion.button 
-              variants={itemVariants}
+
+            <motion.a href="mailto:josephinechibuike17@gmail.com"   variants={itemVariants}
               whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileTap={{ scale: 0.95 }}>
+            <button 
+            
               className="group bg-[#7d4934] text-white px-6 py-3 rounded-full flex items-center space-x-2 hover:bg-[#7d4934]/90 transition-all duration-300"
             >
               <span>Get in touch</span>
@@ -110,7 +111,8 @@ const Footer = () => {
               >
                 <ArrowRight className="h-3 w-3" />
               </motion.div>
-            </motion.button>
+            </button>
+            </motion.a>
           </motion.div>
 
           {/* Middle Section - Menu */}
@@ -126,7 +128,7 @@ const Footer = () => {
               variants={itemVariants}
               className="space-y-3"
             >
-              {['Home', 'Services', 'About', 'Projects', 'Contact'].map((item, index) => (
+              {['Home', 'About', 'Services', 'Projects', 'Contact'].map((item, index) => (
                 <motion.a 
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -155,10 +157,8 @@ const Footer = () => {
               className="space-y-3"
             >
               {[
-                { icon: Facebook, name: 'Facebook', href: '#' },
-                { icon: Instagram, name: 'Instagram', href: '#' },
-                { icon: Music, name: 'TikTok', href: '#' },
-                { icon: Linkedin, name: 'Linkedin', href: '#' }
+                { icon: Instagram, name: 'Instagram', href: 'https://www.instagram.com/jhozie_brandstrategist?igsh=dGpmbjNkN2MwbDhr&utm_source=qr' },
+                { icon: Linkedin, name: 'Linkedin', href: 'https://www.linkedin.com/in/josephine-chibuike?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' }
               ].map((social, index) => {
                 const IconComponent = social.icon;
                 return (
@@ -214,7 +214,7 @@ const Footer = () => {
               className="text-gray-500 text-xs"
             >
                 <motion.a 
-                  href="https:kagaykiglobal.cloud" 
+                  href="https://kagaykiglobal.cloud" 
                   whileHover={{ scale: 1.05 }}
                   transition={{ duration: 0.2 }}
                   className="hover:text-white transition-colors duration-200"

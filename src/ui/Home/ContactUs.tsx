@@ -91,7 +91,7 @@ const BrandSupportSection: React.FC = () => {
               className="pt-4"
             >
               <a 
-                href="mailto:contact@josephine.com" 
+                href="mailto:josephinechibuike17@gmail.com" 
                 className="bg-[#7d4934] hover:bg-[#7d4934]/90 text-white px-8 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg inline-flex items-center space-x-2"
               >
                 <span>Let's Work Together</span>

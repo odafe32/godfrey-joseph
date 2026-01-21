@@ -13,6 +13,7 @@ import HowIWork from './ui/Home/WorkToolkit'
 import ImpactMetrics from './ui/Home/ImpactMetrics'
 import TestimonialCard from './ui/Home/TestimonialCard'
 import BrandSupportSection from './ui/Home/ContactUs'
+import FloatingButtons from './components/FloatingButtons'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,7 +22,7 @@ function App() {
     <Preloader>
       <Topbar/>
       <HeroSection/>
-      <InfiniteLogoCarousel/>
+      {/* <InfiniteLogoCarousel/> */}
       <AboutSection/>
       <ServicesSection/>
       <PortfolioShowcase/>
@@ -32,6 +33,7 @@ function App() {
       <TestimonialCard/>
       <BrandSupportSection/>
       <Footer/>
+      <FloatingButtons/>
     </Preloader>
   )
 }

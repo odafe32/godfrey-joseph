@@ -1,6 +1,6 @@
-# Josephine Portfolio - Virtual Assistant & Brand Support
+# Godfrey Joseph Portfolio - Full-Stack Software Engineer & IT Consultant
 
-A modern, responsive portfolio website showcasing Josephine Chibuike's virtual assistance services, built with React, TypeScript, and Tailwind CSS.
+A modern, responsive portfolio website showcasing Godfrey Joseph's full-stack software development and IT consulting services, built with React, TypeScript, and Tailwind CSS.
 
 ## 🚀 Features
 
@@ -8,11 +8,11 @@ A modern, responsive portfolio website showcasing Josephine Chibuike's virtual a
 - **Responsive Navigation**: Mobile-friendly topbar with smooth scroll effects
 - **Hero Section**: Professional introduction with animated elements
 - **About Section**: Personal story and service overview
-- **Services Section**: Comprehensive service offerings with hover effects
-- **Portfolio Showcase**: 3D carousel of project examples
-- **Client Showcase**: Grid layout of client work and testimonials
-- **Impact Metrics**: Animated statistics and achievements
-- **Work Toolkit**: Step-by-step process explanation
+- **Services Section**: Comprehensive software development services with hover effects
+- **Portfolio Showcase**: 3D carousel of software projects
+- **Client Showcase**: Grid layout of client software projects and testimonials
+- **Impact Metrics**: Animated statistics and software engineering achievements
+- **Work Toolkit**: Step-by-step software development process explanation
 - **Testimonials**: Client feedback and recommendations
 - **Contact Section**: Professional contact form with mailto integration
 - **Footer**: Social links and brand information
@@ -28,8 +28,8 @@ A modern, responsive portfolio website showcasing Josephine Chibuike's virtual a
 
 ## 🎨 Design System
 
-- **Primary Color**: `#7d4934` (Warm brown)
-- **Secondary Color**: Amber accents
+- **Primary Color**: `#3d5a8c` (Professional blue)
+- **Secondary Color**: Blue accents
 - **Typography**: Clean, modern sans-serif fonts
 - **Animations**: Smooth transitions and micro-interactions
 - **Layout**: Responsive grid and flexbox designs
@@ -83,10 +83,12 @@ src/
 │       ├── ServicesSection.tsx
 │       ├── TestimonialCard.tsx
 │       ├── WorkToolkit.tsx
-│       └── ALXSection.tsx
+│    
 ├── App.tsx
 ├── main.tsx
 └── index.css
 ```
 
-## 👩 Created By
+## � Created By
+
+Godfrey Joseph - Full-Stack Software Engineer & IT Consultant

@@ -49,7 +49,7 @@ export const Topbar = () => {
     <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? 'bg-white shadow-sm' : 'bg-transparent'}`}>
       <div className="mx-auto flex h-16 max-w-screen-xl items-center justify-between px-4">
         <a className="flex items-center space-x-3 group" href="/">
-          <span className="font-bold text-lg text-[#7d4934] group-hover:opacity-80 transition-opacity">Josephine</span>
+          <span className="font-bold text-lg text-[#3d5a8c] group-hover:opacity-80 transition-opacity">Godfrey</span>
         </a>
         
         <div className="hidden md:flex items-center justify-between w-full">
@@ -108,12 +108,12 @@ export const Topbar = () => {
           
           <div className="flex-1 flex justify-end">
             <Button 
-              className="bg-[#7d4934] text-white hover:bg-[#7d4934]/90 rounded-full px-4 py-2 h-auto flex items-center space-x-2 transition-all duration-200"
+              className="bg-[#3d5a8c] text-white hover:bg-[#3d5a8c]/90 rounded-full px-4 py-2 h-auto flex items-center space-x-2 transition-all duration-200"
               asChild
             >
               <a href="#contact">
                 <span>Get in touch</span>
-                <div className="bg-white text-[#7d4934] rounded-full p-1 ml-2">
+                <div className="bg-white text-[#3d5a8c] rounded-full p-1 ml-2">
                   <ArrowRight className="h-3 w-3" />
                 </div>
               </a>
@@ -131,7 +131,7 @@ export const Topbar = () => {
             </SheetTrigger>
             <SheetContent side="right" className="w-[300px] sm:w-[400px] bg-white">
               <SheetHeader>
-                <SheetTitle className="flex items-center space-x-3 text-[#7d4934]">
+                <SheetTitle className="flex items-center space-x-3 text-[#3d5a8c]">
                   
                   Josephine
                 </SheetTitle>
@@ -142,53 +142,53 @@ export const Topbar = () => {
               <nav className="flex flex-col space-y-2 mt-6">
                 <a
                   href="#home"
-                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#7d4934] transition-all duration-200 group"
+                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#3d5a8c] transition-all duration-200 group"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="w-2 h-2 bg-[#7d4934] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                  <span className="w-2 h-2 bg-[#3d5a8c] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <span>Home</span>
                 </a>
                 <a
                   href="#about"
-                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#7d4934] transition-all duration-200 group"
+                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#3d5a8c] transition-all duration-200 group"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="w-2 h-2 bg-[#7d4934] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                  <span className="w-2 h-2 bg-[#3d5a8c] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <span>About</span>
                 </a>
                 <a
                   href="#projects"
-                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#7d4934] transition-all duration-200 group"
+                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#3d5a8c] transition-all duration-200 group"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="w-2 h-2 bg-[#7d4934] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                  <span className="w-2 h-2 bg-[#3d5a8c] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <span>Projects</span>
                 </a>
                 <a
                   href="#services"
-                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#7d4934] transition-all duration-200 group"
+                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#3d5a8c] transition-all duration-200 group"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="w-2 h-2 bg-[#7d4934] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                  <span className="w-2 h-2 bg-[#3d5a8c] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <span>Services</span>
                 </a>
                 <a
                   href="#contact"
-                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#7d4934] transition-all duration-200 group"
+                  className="flex items-center space-x-3 px-4 py-3 rounded-lg text-black hover:bg-black/5 hover:text-[#3d5a8c] transition-all duration-200 group"
                   onClick={() => setIsOpen(false)}
                 >
-                  <span className="w-2 h-2 bg-[#7d4934] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                  <span className="w-2 h-2 bg-[#3d5a8c] rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></span>
                   <span>Contact</span>
                 </a>
                 <div className="mt-4 px-4">
                   <Button 
-                    className="w-full bg-[#7d4934] text-white hover:bg-[#7d4934]/90 rounded-full flex items-center justify-center space-x-2"
+                    className="w-full bg-[#3d5a8c] text-white hover:bg-[#3d5a8c]/90 rounded-full flex items-center justify-center space-x-2"
                     onClick={() => setIsOpen(false)}
                     asChild
                   >
                     <a href="#contact">
                       <span>Get in touch</span>
-                      <div className="bg-white text-[#7d4934] rounded-full p-1">
+                      <div className="bg-white text-[#3d5a8c] rounded-full p-1">
                         <ArrowRight className="h-3 w-3" />
                       </div>
                     </a>

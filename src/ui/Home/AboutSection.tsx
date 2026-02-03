@@ -1,28 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, Users, Target, Award } from 'lucide-react';
+import { Code, Users, Lightbulb, Zap } from 'lucide-react';
 
 const AboutSection = () => {
   const services = [
     {
-      icon: Briefcase,
-      title: "Executive Virtual Support",
-      description: "Inbox, calendar, travel coordination, and operational support for founders and executives."
+      icon: Code,
+      title: "Full-Stack Development",
+      description: "Building scalable web applications with modern frameworks, APIs, and database architectures."
     },
     {
       icon: Users,
-      title: "Brand & LinkedIn Management",
-      description: "Profile optimisation, outreach structure, and content support for professional visibility."
+      title: "IT Consulting & Strategy",
+      description: "Providing technical guidance and strategic planning for digital transformation initiatives."
     },
     {
-      icon: Target,
-      title: "Proposals & Pitch Decks",
-      description: "Clear, conversion-focused decks and documents for partnerships and client acquisition."
+      icon: Lightbulb,
+      title: "Solution Design & Architecture",
+      description: "Designing efficient, maintainable systems that solve real business problems."
     },
     {
-      icon: Award,
-      title: "Operational Structure",
-      description: "Systems, workflows, and documentation that bring clarity and efficiency to growing brands."
+      icon: Zap,
+      title: "Performance Optimization",
+      description: "Improving system performance, scalability, and user experience through technical expertise."
     }
   ];
 
@@ -30,9 +30,9 @@ const AboutSection = () => {
    <section id="about" className="py-20 lg:py-32 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-[#7d4934]/20 rounded-full animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-3 h-3 bg-amber-600/30 rounded-full animate-pulse [animation-delay:1s]" />
-        <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-[#7d4934]/40 rounded-full animate-pulse [animation-delay:2s]" />
+        <div className="absolute top-20 left-10 w-2 h-2 bg-[#3d5a8c]/20 rounded-full animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-3 h-3 bg-blue-600/30 rounded-full animate-pulse [animation-delay:1s]" />
+        <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-[#3d5a8c]/40 rounded-full animate-pulse [animation-delay:2s]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,7 +42,7 @@ const AboutSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-           className="text-[#7d4934]/80 text-sm font-semibold tracking-wider uppercase bg-[#7d4934]/10 px-4 py-2 rounded-full mb-6 inline-block">
+           className="text-[#3d5a8c]/80 text-sm font-semibold tracking-wider uppercase bg-[#3d5a8c]/10 px-4 py-2 rounded-full mb-6 inline-block">
           
             About Me
           </motion.p>
@@ -50,11 +50,11 @@ const AboutSection = () => {
                      initial={{ opacity: 0, y: 20 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      transition={{ duration: 0.6, delay: 0.1 }}
-                     className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+                     className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
                    >
-                     The Brand Behind the Brand
+                     Giving Visibility to You, Amplifying Your Influence
                    </motion.h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#7d4934] to-amber-600 mx-auto rounded-full" />
+          <div className="w-24 h-1 bg-gradient-to-r from-[#3d5a8c] to-blue-600 mx-auto rounded-full" />
         </div>
 
         {/* Main Content */}
@@ -69,35 +69,36 @@ const AboutSection = () => {
           >
             <div className="space-y-4">
               <h3 className="text-2xl lg:text-3xl font-bold text-gray-800">
-                Josephine Chibuike
+                Godfrey Joseph Sule
               </h3>
-              <p className="text-[#7d4934] font-medium text-lg">
-               Brand Strategist | Virtual Assistant | Administrative Support
+              <p className="text-[#3d5a8c] font-medium text-lg">
+               Full-Stack Software Engineer | IT Consultant | Systems Architect
               </p>
             </div>
 
             <p className="text-gray-600 leading-relaxed text-lg">
-              I'm a passionate Brand Strategist and detail-oriented Virtual Assistant with hands-on experience supporting busy professionals, entrepreneurs, and creative brands. From developing brand strategies to managing schedules and creating proposals that convert, I bring order, clarity, and creativity into every workspace I support.
+              I’m a Full-Stack Software Engineer and IT Consultant with more than half a decade of experience delivering scalable web and mobile applications, robust backend systems, and cloud-based solutions. My focus is helping individuals and businesses <strong>stand out, gain visibility, and achieve measurable impact through technology.</strong>
             </p>
 
             <p className="text-gray-600 leading-relaxed text-lg">
-              Over time, I've had the privilege of working with diverse clients across different industries, from entertainment managers and hairstylists to real estate consultants and e-commerce brands. My work has ranged from brand strategy development and LinkedIn optimization to outreach emails, proposal development, data entry, invoicing, and calendar management.
+              I specialize in <strong>React, React Native, Next.js, Laravel, Nest.js, and modern cloud platforms</strong>, translating complex requirements into <strong>reliable, maintainable, and performance-driven solutions</strong>. I bridge the gap between technical implementation and business strategy to ensure technology amplifies your goals.
             </p>
 
             <p className="text-gray-600 leading-relaxed text-lg">
-              What sets me apart is my ability to adapt quickly, learn new tools, and stay proactive even in fast-paced environments. I'm not just here to complete tasks. As a Brand Strategist, I'm here to help businesses grow efficiently through organization, communication, and strategic brand development.
+             I’ve partnered with diverse clients to transform thier ideas into scalable digital solutions, ensuring that it is reliable, visible and measurable .
             </p>
 
             <p className="text-gray-600 leading-relaxed text-lg">
-              I believe that every brand deserves structure, and every client deserves peace of mind knowing their operations are in capable hands.
+              My goal is simple: <strong>give visibility to your ideas and business, amplify your influence, and create solutions that make a difference</strong>. I don’t just build software, I help you leverage it to achieve real results.
             </p>
+
 
             <div className="pt-6">
-                            <a href="mailto:josephinechibuike17@gmail.com"  target='blank'>
+                            <a href="mailto:godfreyj.sule1@gmail.com"  target='blank'>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#7d4934] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#7d4934]/90 transition-all duration-300 shadow-lg"
+                className="bg-[#3d5a8c] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#3d5a8c]/90 transition-all duration-300 shadow-lg"
               >
              
                Get in touch
@@ -116,11 +117,11 @@ const AboutSection = () => {
           >
             <div className="relative">
               <img 
-                src="/logo.JPG"
-                alt="Josephine Chibuike - Executive Virtual Assistant"
-                className="w-full max-w-md h-auto rounded-2xl shadow-2xl"
+                src="/odafe2.png"
+                alt="Godfrey Joseph Sule - Full-Stack Software Engineer"
+                className="w-full max-w-md lg:h-[400px] h-auto rounded-2xl shadow-2xl"
               />
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#7d4934]/20 to-amber-600/20 rounded-2xl -z-10 blur-xl" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#3d5a8c]/20 to-blue-600/20 rounded-2xl -z-10 blur-xl" />
             </div>
           </motion.div>
         </div>

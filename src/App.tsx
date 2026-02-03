@@ -27,7 +27,7 @@ function App() {
       <ServicesSection/>
       <PortfolioShowcase/>
       <ClientShowcase/>
-      <ALXSection/>
+      {/* <ALXSection/> */}
       <HowIWork/>
       <ImpactMetrics/>
       <TestimonialCard/>

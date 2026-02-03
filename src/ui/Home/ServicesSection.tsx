@@ -1,48 +1,34 @@
 import { motion } from 'framer-motion';
-import { Users, Calendar, Plane, FileText, Database, DollarSign, ArrowRight, Check, Coins, CoinsIcon, FolderArchive, Linkedin, BrickWallShieldIcon } from 'lucide-react';
+import { Users, Calendar, Plane, FileText, Database, DollarSign, ArrowRight, Check, Coins, CoinsIcon, FolderArchive, Linkedin, BrickWallShieldIcon, Code, Lightbulb, Zap } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: BrickWallShieldIcon,
-      title: "Brand Management",
-      description: " content strategy, and engagement to elevate your professional presence.",
-      features: [ "Content Strategy", "Outreach Campaigns", "Analytics & Reporting"],
+      icon: Code,
+      title: "Full-Stack & Mobile Development",
+      description: "Building scalable web and mobile applications with React, React Native, Laravel, Next.js, and modern frameworks.",
+      features: ["Web Applications", "Mobile Apps", "API Development", "Database Design"],
       popular: true
     },
     {
-      icon: Calendar,
-      title: "Calendar & Inbox",
-      description: "Streamlined scheduling, email management, and appointment coordination for maximum efficiency.",
-      features: ["Calendar Management", "Email Organization", "Appointment Scheduling", "Time Management"],
+      icon: Users,
+      title: "IT Consulting & Strategy",
+      description: "Providing technical guidance and strategic planning for digital transformation and technology adoption.",
+      features: ["System Architecture", "Technical Strategy", "Digital Solutions", "Performance Optimization"],
       popular: false
     },
     {
-      icon: Plane,
-      title: "Travel & Logistics",
-      description: "Detailed itineraries, booking management, and seamless travel coordination.",
-      features: ["Travel Planning", "Booking Management", "Itinerary Creation", "Logistics Coordination"],
+      icon: Lightbulb,
+      title: "Solution Design & Architecture",
+      description: "Designing efficient, maintainable systems that solve real business problems and scale effectively.",
+      features: ["Solution Architecture", "System Design", "Scalability Planning", "Technical Consulting"],
       popular: false
     },
     {
-      icon: FileText,
-      title: "Proposals & Presentations",
-      description: "Professional slide decks and strategy documents that convert prospects into clients.",
-      features: ["Custom Design", "Content Development", "Visual Branding", "Revisions Included"],
-      popular: false
-    },
-    {
-      icon: FolderArchive,
-      title: "Data & Research",
-      description: "Accurate data entry, comprehensive research, and organised information management.",
-      features: ["Data Entry", "Market Research", "Information Organization", "Report Generation"],
-      popular: false
-    },
-    {
-      icon: CoinsIcon,
-      title: "Financial Admin",
-      description: "Invoice creation, payment tracking, and financial documentation support.",
-      features: ["Invoice Creation", "Payment Tracking", "Financial Documentation", "Budget Management"],
+      icon: Zap,
+      title: "Deployment, Scaling & Digital Visibility",
+      description: "Ensuring systems run reliably, scale seamlessly, and increase your digital presence for maximum impact.",
+      features: ["VPS Deployment", "System Monitoring", "SEO Optimization", "Digital Presence"],
       popular: false
     }
   ];
@@ -52,7 +38,7 @@ const ServicesSection = () => {
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute inset-0" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, #7d4934 1px, transparent 1px)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, #3d5a8c 1px, transparent 1px)`,
           backgroundSize: '40px 40px'
         }} />
       </div>
@@ -65,21 +51,21 @@ const ServicesSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-            <span className="text-[#7d4934]/80 text-sm font-semibold tracking-wider uppercase bg-[#7d4934]/10 px-4 py-2 rounded-full mb-6 inline-block">
+            <span className="text-[#3d5a8c]/80 text-sm font-semibold tracking-wider uppercase bg-[#3d5a8c]/10 px-4 py-2 rounded-full mb-6 inline-block">
             Services
           </span>
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6"
           >
-         Virtual Assistance Services
+         Digital Solutions & Technical Services
           </motion.h2>
           <p className="text-md text-gray-600 max-w-3xl mx-auto mb-8">
-           Comprehensive support tailored to help you focus on what matters most whilst I handle the details that keep your business running smoothly.
+           Transforming ideas into scalable digital solutions. From concept to deployment, I build robust systems that amplify your digital presence and drive business growth.
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-[#7d4934] to-amber-600 mx-auto rounded-full" />
+          <div className="w-32 h-1 bg-gradient-to-r from-[#3d5a8c] to-blue-600 mx-auto rounded-full" />
         </motion.div>
 
         {/* Services Grid */}
@@ -94,16 +80,16 @@ const ServicesSection = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`relative bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 border ${
                   service.popular 
-                    ? 'border-[#7d4934] hover:ring-2 hover:ring-[#7d4934]/20' 
-                    : 'border-gray-200 hover:border-[#7d4934]/50'
+                    ? 'border-[#3d5a8c] hover:ring-2 hover:ring-[#3d5a8c]/20' 
+                    : 'border-gray-200 hover:border-[#3d5a8c]/50'
                 } p-8 group`}
               >
 
-                <div className="w-16 h-16 bg-gradient-to-br from-[#7d4934]/10 to-amber-600/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                  <IconComponent className="w-8 h-8 text-[#7d4934]" />
+                <div className="w-16 h-16 bg-gradient-to-br from-[#3d5a8c]/10 to-blue-600/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <IconComponent className="w-8 h-8 text-[#3d5a8c]" />
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#7d4934] transition-colors duration-300">
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#3d5a8c] transition-colors duration-300">
                   {service.title}
                 </h3>
                 
@@ -128,7 +114,7 @@ const ServicesSection = () => {
                 >
                   <a 
                     href="#contact"
-                    className="w-full py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 bg-gray-100 text-gray-900 hover:bg-[#7d4934] hover:text-white hover:shadow-lg block"
+                    className="w-full py-3 rounded-xl font-semibold transition-all duration-300 flex items-center justify-center space-x-2 bg-gray-100 text-gray-900 hover:bg-[#3d5a8c] hover:text-white hover:shadow-lg block"
                   >
                     <span>Get Started</span>
                     <ArrowRight className="w-4 h-4" />
@@ -154,11 +140,11 @@ const ServicesSection = () => {
               I offer tailored packages to meet your specific business needs. Let's discuss your requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                 <a href="https://calendly.com/josephinechibuike17/brand-strategy-consultation" target='blank'>
+                 <a href="mailto:godfreyj.sule1@gmail.com" target='blank'>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#7d4934] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#7d4934]/90 transition-all duration-300 shadow-lg"
+                className="bg-[#3d5a8c] text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-[#3d5a8c]/90 transition-all duration-300 shadow-lg"
               >
              
                 Schedule Consultation

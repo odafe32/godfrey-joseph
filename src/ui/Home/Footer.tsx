@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion, Variants, TargetAndTransition } from 'framer-motion';
-import { ArrowRight, Facebook, Instagram, Youtube, Music, Linkedin } from 'lucide-react';
+import { ArrowRight, Facebook, Instagram, Youtube, Music, Linkedin, Github } from 'lucide-react';
 
 const Footer = () => {
   useEffect(() => {
@@ -67,7 +67,7 @@ const Footer = () => {
         transition={{ duration: 1 }}
         className="absolute inset-0 flex items-center justify-center"
       >
-        <span className="text-[200px] font-black">Josephine</span>
+        <span className="text-[200px] font-black">Godfrey Joseph</span>
       </motion.div>
 
       <motion.div 
@@ -85,27 +85,27 @@ const Footer = () => {
             className="space-y-6"
           >
             <motion.div variants={itemVariants}>
-              <h3 className="text-2xl font-bold text-white">Josephine</h3>
-              <p className="text-[#7d4934] text-sm mt-2">The brand behind the brand</p>
+              <h3 className="text-2xl font-bold text-white">Godfrey Joseph</h3>
+              <p className="text-[#3d5a8c] text-sm mt-2">Full-Stack Software Engineer</p>
             </motion.div>
             
             <motion.p 
               variants={itemVariants}
               className="text-gray-400 text-sm leading-relaxed max-w-sm"
             >
-              Helping you work smarter, not harder. Executive virtual assistance and brand support services that elevate your business.
+              Delivering scalable software solutions and IT consulting services that drive business growth and innovation.
             </motion.p>
 
-            <motion.a href="mailto:josephinechibuike17@gmail.com"   variants={itemVariants}
+            <motion.a href="mailto:godfrey.joseph@example.com"   variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}>
             <button 
             
-              className="group bg-[#7d4934] text-white px-6 py-3 rounded-full flex items-center space-x-2 hover:bg-[#7d4934]/90 transition-all duration-300"
+              className="group bg-[#3d5a8c] text-white px-6 py-3 rounded-full flex items-center space-x-2 hover:bg-[#3d5a8c]/90 transition-all duration-300"
             >
               <span>Get in touch</span>
               <motion.div 
-                className="bg-white text-[#7d4934] rounded-full p-1 ml-2 group-hover:scale-110 transition-transform"
+                className="bg-white text-[#3d5a8c] rounded-full p-1 ml-2 group-hover:scale-110 transition-transform"
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.3 }}
               >
@@ -122,7 +122,7 @@ const Footer = () => {
           >
             <motion.h4 
               variants={itemVariants}
-              className="text-[#7d4934] font-semibold text-lg"
+              className="text-[#3d5a8c] font-semibold text-lg"
             >Menu</motion.h4>
             <motion.nav 
               variants={itemVariants}
@@ -150,15 +150,16 @@ const Footer = () => {
           >
             <motion.h4 
               variants={itemVariants}
-              className="text-[#7d4934] font-semibold text-lg"
+              className="text-[#3d5a8c] font-semibold text-lg"
             >Social</motion.h4>
             <motion.nav 
               variants={itemVariants}
               className="space-y-3"
             >
               {[
-                { icon: Instagram, name: 'Instagram', href: 'https://www.instagram.com/jhozie_brandstrategist?igsh=dGpmbjNkN2MwbDhr&utm_source=qr' },
-                { icon: Linkedin, name: 'Linkedin', href: 'https://www.linkedin.com/in/josephine-chibuike?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app' }
+                { icon: Github, name: 'GitHub', href: 'https://github.com/odafe32' },
+                { icon: Instagram, name: 'Instagram', href: 'https://www.instagram.com/godfrey_joseph_' },
+                { icon: Linkedin, name: 'LinkedIn', href: 'https://www.linkedin.com/in/godfrey-joseph-odafe-0992691a8/' }
               ].map((social, index) => {
                 const IconComponent = social.icon;
                 return (

@@ -15,32 +15,32 @@ const HowIWork: React.FC = () => {
   const workSteps: WorkStep[] = [
     {
       id: 1,
-      title: "Discovery",
-      description: "Understand your needs, goals, and current workflow to identify opportunities for improvement.",
+      title: "Discovery & Analysis",
+      description: "Understand project requirements, user needs, technical specifications, and feasibility analysis.",
       icon: Search,
       bgColor: "bg-orange-50",
       iconColor: "text-orange-500"
     },
     {
       id: 2,
-      title: "System Setup",
-      description: "Organise tools, establish communication channels, and create efficient processes.",
+      title: "Design & Architecture",
+      description: "Plan system architecture, choose technologies, create wireframes, and design user interfaces.",
       icon: Settings,
       bgColor: "bg-blue-50", 
       iconColor: "text-blue-500"
     },
     {
       id: 3,
-      title: "Execution",
-      description: "Manage tasks efficiently with clear updates, proactive communication, and attention to detail.",
+      title: "Development",
+      description: "Code implementation, version control, agile development, and iterative building.",
       icon: Zap,
       bgColor: "bg-teal-50",
       iconColor: "text-teal-500"
     },
     {
       id: 4,
-      title: "Review",
-      description: "Track progress, measure results, and continuously optimise for better outcomes.",
+      title: "Testing & Deployment",
+      description: "Quality assurance, CI/CD pipelines, launch, monitoring, and maintenance.",
       icon: Activity,
       bgColor: "bg-purple-50",
       iconColor: "text-purple-500"
@@ -54,8 +54,8 @@ const HowIWork: React.FC = () => {
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0" style={{
           backgroundImage: `
-            linear-gradient(rgba(125, 73, 52, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(125, 73, 52, 0.03) 1px, transparent 1px)
+            linear-gradient(rgba(61, 90, 140, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(61, 90, 140, 0.03) 1px, transparent 1px)
           `,
           backgroundSize: '20px 20px'
         }} />
@@ -84,7 +84,7 @@ const HowIWork: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-lg text-gray-600 leading-relaxed mb-12 max-w-lg"
               >
-                My systematic approach ensures clarity, efficiency, and measurable results at every stage of our collaboration.
+                My software development methodology ensures robust, scalable solutions from concept to deployment.
               </motion.p>
 
               {/* Progress indicators */}
@@ -95,10 +95,10 @@ const HowIWork: React.FC = () => {
                     initial={{ opacity: 0, x: -10 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.4, delay: 0.3 + (index * 0.1) }}
-                    className="flex items-center text-sm text-gray-400 group-hover:text-[#7d4934] transition-colors duration-300"
+                    className="flex items-center text-sm text-gray-400 group-hover:text-[#3d5a8c] transition-colors duration-300"
                   >
                     <div className={`w-2 h-2 rounded-full mr-3 transition-colors duration-300 ${
-                      index < workSteps.length - 1 ? 'bg-gray-300 group-hover:bg-[#7d4934]' : 'bg-green-500'
+                      index < workSteps.length - 1 ? 'bg-gray-300 group-hover:bg-[#3d5a8c]' : 'bg-green-500'
                     }`}></div>
                     <span className="font-medium">{step.title}</span>
                     {index < workSteps.length - 1 && (
@@ -168,9 +168,9 @@ const HowIWork: React.FC = () => {
               transition={{ duration: 0.6, delay: 1.2 }}
               className="mt-16 pt-12 border-t border-gray-100"
             >
-              <div className="bg-gradient-to-r from-[#7d4934]/5 to-amber-600/5 rounded-2xl p-8">
+              <div className="bg-gradient-to-r from-[#3d5a8c]/5 to-amber-600/5 rounded-2xl p-8">
                 <p className="text-gray-700 text-lg italic leading-relaxed">
-                  "Organisation is not about perfection — it's about efficiency."
+                  "Software development is not about perfection — it's about functionality and scalability."
                 </p>
               </div>
             </motion.div>

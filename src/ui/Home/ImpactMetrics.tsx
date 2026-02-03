@@ -5,28 +5,28 @@ import { TrendingUp, Users, Target, Award } from 'lucide-react'
 const ImpactMetrics = () => {
   const metrics = [
     {
-      value: "45%",
-      label: "LinkedIn Growth",
-      description: "Increased client engagement through strategic content and optimisation",
-      icon: TrendingUp
-    },
-    {
-      value: "3+",
-      label: "CEOs Supported",
-      description: "Streamlined inbox and calendar management for busy executives",
-      icon: Users
+      value: "15+",
+      label: "Projects Completed",
+      description: "Full-stack applications and systems delivered successfully",
+      icon: Target
     },
     {
       value: "10+",
-      label: "Winning Proposals",
-      description: "Created client proposals that led to successful partnerships",
-      icon: Target
+      label: "Technologies Mastered",
+      description: "Expertise in modern web technologies and frameworks",
+      icon: TrendingUp
     },
     {
       value: "100%",
       label: "On-Time Delivery",
-      description: "Delivered all projects before deadlines with exceptional quality",
+      description: "All projects delivered before deadlines with quality",
       icon: Award
+    },
+    {
+      value: "4.9",
+      label: "Client Satisfaction",
+      description: "Average rating from satisfied clients",
+      icon: Users
     }
   ]
 
@@ -34,9 +34,9 @@ const ImpactMetrics = () => {
     <section className="py-20 lg:py-32 bg-gradient-to-b from-amber-50/20 to-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-[#7d4934]/20 rounded-full animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-3 h-3 bg-amber-600/30 rounded-full animate-pulse [animation-delay:1s]" />
-        <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-[#7d4934]/40 rounded-full animate-pulse [animation-delay:2s]" />
+        <div className="absolute top-20 left-10 w-2 h-2 bg-[#3d5a8c]/20 rounded-full animate-pulse" />
+        <div className="absolute bottom-20 right-10 w-3 h-3 bg-[#3d5a8c]/30 rounded-full animate-pulse [animation-delay:1s]" />
+        <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-[#3d5a8c]/40 rounded-full animate-pulse [animation-delay:2s]" />
       </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -47,7 +47,7 @@ const ImpactMetrics = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16 lg:mb-20"
         >
-          <span className="text-[#7d4934]/80 text-sm font-semibold tracking-wider uppercase bg-[#7d4934]/10 px-4 py-2 rounded-full mb-6 inline-block">
+          <span className="text-[#3d5a8c]/80 text-sm font-semibold tracking-wider uppercase bg-[#3d5a8c]/10 px-4 py-2 rounded-full mb-6 inline-block">
             Impact Metrics
           </span>
           <motion.h2 
@@ -59,9 +59,9 @@ const ImpactMetrics = () => {
             My Impact in Numbers
           </motion.h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-8">
-            Measurable results that demonstrate the value of professional virtual assistance and organised support systems
+            Measurable results that demonstrate the value of professional software development and technical solutions
           </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-[#7d4934] to-amber-600 mx-auto rounded-full" />
+          <div className="w-32 h-1 bg-gradient-to-r from-[#3d5a8c] to-blue-600 mx-auto rounded-full" />
         </motion.div>
 
         {/* Metrics Grid */}
@@ -83,8 +83,8 @@ const ImpactMetrics = () => {
               >
                 <div className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-3 p-8 border border-gray-100">
                   {/* Icon */}
-                  <div className="w-16 h-16 bg-gradient-to-br from-[#7d4934]/10 to-amber-600/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <IconComponent className="w-8 h-8 text-[#7d4934]" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-[#3d5a8c]/10 to-blue-600/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                    <IconComponent className="w-8 h-8 text-[#3d5a8c]" />
                   </div>
                   
                   {/* Value */}
@@ -111,17 +111,17 @@ const ImpactMetrics = () => {
           <div className="bg-gradient-to-r from-gray-50 to-white rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-100">
             <div className="text-center">
               <div className="mb-8">
-                <span className="text-[#7d4934] text-sm font-semibold tracking-wide uppercase">
+                <span className="text-[#3d5a8c] text-sm font-semibold tracking-wide uppercase">
                   Client Testimonial
                 </span>
               </div>
               
               <blockquote className="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8 font-medium">
-                "Josephine transformed the way I manage my business. Her attention to detail and proactive approach freed up hours of my time every week. She's not just a virtual assistant, she's a strategic partner."
+                "Godfrey Joseph delivered exceptional software solutions that exceeded our expectations. His technical expertise and attention to detail transformed our digital presence."
               </blockquote>
               
               <cite className="text-gray-900 font-bold text-lg lg:text-xl not-italic">
-                Derma Repair, Founder
+                CEO, Davion Wears
               </cite>
             </div>
           </div>

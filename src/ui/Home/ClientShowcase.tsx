@@ -7,106 +7,96 @@ interface Client {
   testimonial?: string;
   project?: string;
   category?: string;
+  link?: string;
 }
 
 const ClientShowcase: React.FC = () => {
   const clients: Client[] = [
     {
-      name: "Mel's Meals",
-      logo: "/a.PNG",
-      project: "LinkedIn Strategy Proposal",
-      category: "LinkedIn Strategy"
+      name: "Davion Wears",
+      logo: "/shop-with-davion.png",
+      project: "E-commerce Platform",
+      category: "E-commerce",
+      link: "https://shopwithdavion.com/"
     },
     {
-      name: "Professional Services",
-      logo: "/b.jpg", 
-      project: "Presentations & Proposals",
-      category: "Proposals & Presentations"
+      name: "Josephine Chibuike",
+      logo: "/josephine-portfolio2.png",
+      project: "Portfolio Website",
+      category: "Portfolio",
+      link: "https://josephine-portfolio-one.vercel.app/"
     },
     {
-      name: "Travel Planning",
-      logo: "/c.JPG",
-      project: "Business Trip Planning",
-      category: "Travel & Logistics"
+      name: "Cornerstone Global",
+      logo: "/cornerstone-app.png",
+      project: "Church Management App",
+      category: "Full-Stack & Mobile Development",
+      link: "https://app.cornerstoneglobal.org"
     },
     {
-      name: "Management Solutions",
-      logo: "/d.JPG",
-      project: "Account Management",
-      category: "Management"
+      name: "Mike + MikePartners",
+      logo: "/mikeandmike.png",
+      project: "Real Estate Platform",
+      category: "Full-Stack Development",
+      link: "https://mikeandmikepartners.com/"
     },
     {
-      name: "Product Reviews",
-      logo: "/h.jpg",
-      project: "Prism Products Review",
-      category: "Financial Admin"
+      name: "MindfulYouth Hub",
+      logo: "/mindfulyouth2.png",
+      project: "Youth Education Platform",
+      category: "Full-Stack & Mobile Development",
+      link: "https://themindfulyouthhub.com/"
     },
     {
-      name: "Brand Analytics",
-      logo: "/f.jpg",
-      project: "Brand Reports & Research",
-      category: "Data & Research"
+      name: "MovieAI",
+      logo: "/movie-ai.png",
+      project: "AI Movie Recommendations",
+      category: "AI Development",
+      link: "https://movie-recommendation-nextjs.vercel.app/"
     },
     {
-      name: "ALX Project",
-      logo: "/Alx.PNG",
-      project: "Advanced Learning Experience",
-      category: "Education & Training"
+      name: "MovieAI",
+      logo: "/movie-ai2.png",
+        project: "AI Movie Recommendations",
+      category: "AI Development",
+      link: "https://movie-recommendation-nextjs.vercel.app/"
     },
     {
-      name: "Documentation",
-      logo: "/IMG_7396.jpg",
-      project: "Professional Documentation",
-      category: "Content Creation"
+      name: "Maseke Daniel Ministries",
+      logo: "/maseke.png",
+      project: "Admin Dashboard",
+      category: "Full-Stack Development",
+      link: "#"
     },
     {
-      name: "Brand Development",
-      logo: "/IMG_7434.PNG",
-      project: "Brand Identity Design",
-      category: "Visual Design"
+      name: "Logistics Global",
+      logo: "/logistics.png",
+      project: "Logistics Platform",
+      category: "Full-Stack Development",
+      link: "#"
     },
-    {
-      name: "Project Management",
-      logo: "/IMG_7445.JPG",
-      project: "Project Coordination",
-      category: "Management"
-    },
-    {
-      name: "Content Strategy",
-      logo: "/IMG_7449.JPG",
-      project: "Strategic Content Planning",
-      category: "Marketing"
-    },
-    {
-      name: "Client's Testimony",
-         logo: "/IMG_7452.PNG",
-      project: "Testimony",
-      category: "Testimonies"
-    },
-    {
-      name: "Data Analysis",
-      logo: "/IMG_8309.PNG",
-      project: "Comprehensive Data Analysis",
-      category: "Research & Analytics"
-    },
-    {
-      name: "Business Intelligence",
-      logo: "/IMG_8310.PNG",
-      project: "BI Solutions & Reporting",
-      category: "Data & Research"
-    },
-    {
-      name: "Marketing Campaign",
-      logo: "/IMG_8311.PNG",
-      project: "Digital Marketing Strategy",
-      category: "Marketing"
-    },
-    {
-      name: "Financial Planning",
-      logo: "/IMG_8312.PNG",
-      project: "Financial Strategy & Planning",
-      category: "Financial Admin"
-    }
+    // {
+    //   name: "Project Management",
+    //   logo: "/IMG_7445.JPG",
+    //   project: "Project Coordination",
+    //   category: "DevOps",
+    //   link: "#"
+    // },
+    // {
+    //   name: "Content Strategy",
+    //   logo: "/IMG_7449.JPG",
+    //   project: "Strategic Content Planning",
+    //   category: "Digital Marketing",
+    //   link: "#"
+    // },
+    // {
+    //   name: "Client's Testimony",
+    //      logo: "/IMG_7452.PNG",
+    //   project: "Testimony",
+    //   category: "Client Relations",
+    //   link: "#"
+    // },
+
   ];
 
   return (
@@ -116,8 +106,8 @@ const ClientShowcase: React.FC = () => {
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
           <div className="inline-block">
-               <span className="text-[#7d4934]/80 text-sm font-semibold tracking-wider uppercase bg-[#7d4934]/10 px-4 py-2 rounded-full mb-6 inline-block">
-             Services & Specialisations
+               <span className="text-[#3d5a8c]/80 text-sm font-semibold tracking-wider uppercase bg-[#3d5a8c]/10 px-4 py-2 rounded-full mb-6 inline-block">
+             Additional Projects & Solutions
             </span>
           </div>
             <motion.h2 
@@ -126,11 +116,11 @@ const ClientShowcase: React.FC = () => {
                      transition={{ duration: 0.6, delay: 0.1 }}
                      className="text-4xl sm:text-5xl lg:text-5xl font-bold text-gray-900 mb-6"
                    >
-                      Additional Services & Specialisations
+                      Additional Projects & Solutions
                    </motion.h2>
           
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Delivering exceptional results across various industries with tailored solutions
+            Real-world solutions I've built, from web applications and mobile apps to cloud infrastructure and digital transformation projects
           </p>
         </div>
 
@@ -142,12 +132,14 @@ const ClientShowcase: React.FC = () => {
               className="group relative overflow-hidden"
             >
               {/* Image Container - Full Size */}
-              <div className="relative w-full h-64 lg:h-80">
-                <img 
-                  src={client.logo}
-                  alt={`${client.name} project`}
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative w-full h-64 aspect-square">
+                <a href={client.link || "#"} target={client.link && client.link !== "#" ? "_blank" : "_self"} className="block">
+                  <img 
+                    src={client.logo}
+                    alt={`${client.name} project`}
+                    className="w-full h-full object-cover"
+                  />
+                </a>
                 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -157,7 +149,7 @@ const ClientShowcase: React.FC = () => {
                   <div className="text-white">
                     <h3 className="text-lg font-bold mb-1">{client.name}</h3>
                     <p className="text-sm text-gray-200 mb-2">{client.project}</p>
-                    <span className="text-xs font-medium bg-[#7d4934] px-2 py-1 rounded-full">
+                    <span className="text-xs font-medium bg-[#3d5a8c] px-2 py-1 rounded-full">
                       {client.category}
                     </span>
                   </div>

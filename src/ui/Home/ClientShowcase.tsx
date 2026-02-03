@@ -127,19 +127,14 @@ const ClientShowcase: React.FC = () => {
         {/* Client Grid - Seamless Images */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0">
           {clients.map((client, index) => (
-            <div 
-              key={index}
-              className="group relative overflow-hidden"
-            >
+            <a href={client.link || "#"} target={client.link && client.link !== "#" ? "_blank" : "_self"} className="block group relative overflow-hidden">
               {/* Image Container - Full Size */}
               <div className="relative w-full h-64 aspect-square">
-                <a href={client.link || "#"} target={client.link && client.link !== "#" ? "_blank" : "_self"} className="block">
-                  <img 
-                    src={client.logo}
-                    alt={`${client.name} project`}
-                    className="w-full h-full object-cover"
-                  />
-                </a>
+                <img 
+                  src={client.logo}
+                  alt={`${client.name} project`}
+                  className="w-full h-full object-cover"
+                />
                 
                 {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -155,7 +150,7 @@ const ClientShowcase: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 

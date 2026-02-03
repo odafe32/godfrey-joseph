@@ -13,6 +13,8 @@ interface Project {
 const PortfolioShowcase: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAutoRotating, setIsAutoRotating] = useState(true);
+  const [carouselSize, setCarouselSize] = useState({ width: 400, height: 600 });
+  const [radius, setRadius] = useState(320);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
 
   const projects: Project[] = [
@@ -73,6 +75,23 @@ const PortfolioShowcase: React.FC = () => {
     
   ];
 
+  // Responsive carousel size and radius
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setCarouselSize({ width: 300, height: 450 });
+        setRadius(200);
+      } else {
+        setCarouselSize({ width: 400, height: 600 });
+        setRadius(320);
+      }
+    };
+
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
   // Auto-rotation effect
   useEffect(() => {
     if (isAutoRotating) {
@@ -104,7 +123,6 @@ const PortfolioShowcase: React.FC = () => {
     
     // Calculate angle for circular arrangement
     const angle = (360 / totalProjects) * diff;
-    const radius = 320;
     
     // Calculate 3D position
     const x = Math.sin((angle * Math.PI) / 180) * radius;
@@ -168,22 +186,20 @@ const PortfolioShowcase: React.FC = () => {
         </div>
 
         {/* 3D Carousel */}
-        <div className="relative">
+        <div className="relative overflow-hidden mb-8 lg:mb-0">
           <div 
-            className="relative mx-auto"
+            className="flex justify-center items-center mx-auto"
             style={{ 
-              height: '600px',
-              perspective: '1200px',
-              perspectiveOrigin: 'center center'
+              perspective: '1000px',
+              height: `${carouselSize.height}px`
             }}
           >
-            {/* Carousel Container */}
-            <div 
-              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+            <motion.div 
+              className="relative"
               style={{ 
                 transformStyle: 'preserve-3d',
-                width: '400px',
-                height: '600px'
+                width: `${carouselSize.width}px`,
+                height: `${carouselSize.height}px`
               }}
             >
               {projects.map((project, index) => (
@@ -235,26 +251,52 @@ const PortfolioShowcase: React.FC = () => {
                   </div>
                 </a>
               ))}
+            </motion.div>
+          </div>
 
-              {/* Navigation Dots */}
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 flex items-center gap-3">
-                {projects.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => handleProjectClick(index)}
-                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                      index === currentIndex
-                        ? 'bg-[#3d5a8c] scale-125'
-                        : 'bg-gray-300 hover:bg-gray-400'
-                    }`}
-                  />
-                ))}
-              </div>
+          {/* Navigation Controls */}
+          <div className="absolute bottom-[-5px] left-1/2 -translate-x-1/2 z-20 flex items-center justify-center gap-4">
+            {/* Previous Button */}
+            <button
+              onClick={() => handleProjectClick((currentIndex - 1 + projects.length) % projects.length)}
+              className="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110"
+              aria-label="Previous project"
+            >
+              <svg className="w-5 h-5 text-[#3d5a8c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+
+            {/* Navigation Dots */}
+            <div className="flex items-center gap-3">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleProjectClick(index)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    index === currentIndex
+                      ? 'bg-[#3d5a8c] scale-125'
+                      : 'bg-gray-300 hover:bg-gray-400'
+                  }`}
+                  aria-label={`Go to project ${index + 1}`}
+                />
+              ))}
             </div>
+
+            {/* Next Button */}
+            <button
+              onClick={() => handleProjectClick((currentIndex + 1) % projects.length)}
+              className="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110"
+              aria-label="Next project"
+            >
+              <svg className="w-5 h-5 text-[#3d5a8c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
 
           {/* Project Info Panel */}
-          <div className="absolute bottom-10 left-10 right-10 lg:left-auto lg:right-10 lg:w-80">
+          <div className="relative lg:absolute lg:bottom-10 lg:left-auto lg:right-10 lg:w-80 mt-4 lg:mt-0">
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/50">
               <div className="flex items-center gap-4 mb-4">
                 <span className="text-[#3d5a8c] text-2xl font-black">#{projects[currentIndex].number}</span>

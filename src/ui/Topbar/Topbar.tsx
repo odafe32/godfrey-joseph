@@ -133,7 +133,7 @@ export const Topbar = () => {
               <SheetHeader>
                 <SheetTitle className="flex items-center space-x-3 text-[#3d5a8c]">
                   
-                  Josephine
+                  Godfrey
                 </SheetTitle>
                 <SheetDescription className="text-black/60 text-left" >
                   The brand behind the brand,  helping you work smarter, not harder.

@@ -117,7 +117,7 @@ const AboutSection = () => {
           >
             <div className="relative">
               <img 
-                src="/odafe2.png"
+                src="/odafe2.jpg"
                 alt="Godfrey Joseph Sule - Full-Stack Software Engineer"
                 className="w-full max-w-md lg:h-[400px] h-auto rounded-2xl shadow-2xl"
               />

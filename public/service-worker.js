@@ -2,7 +2,7 @@ const CACHE_NAME = 'godfrey-joseph-v1';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
-  '/odafe2.png',
+  '/odafe2.jpg',
   '/shop-with-davion.png',
   '/josephine-portfolio2.png',
   '/cornerstone-app.png',

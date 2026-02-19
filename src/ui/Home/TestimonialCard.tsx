@@ -12,7 +12,7 @@ const TestimonialCard = () => {
       role: "Virtual Assistant",
       company: "Professional Services",
       quote: "Working with Godfrey has been transformative for my career. His technical expertise and guidance helped me build a professional portfolio that truly represents my brand. Highly recommended!",
-      image: "/josephine-portfolio2.png"
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png"
     },
     {
       id: 2,
@@ -28,7 +28,7 @@ const TestimonialCard = () => {
       role: "Founder",
       company: "Mike + MikePartners",
       quote: "The real estate platform Godfrey built for us is robust, scalable, and user-friendly. His professionalism and technical skills are top-notch. A true software engineer!",
-      image: "/mikeandmike.png"
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/mikeandmike_r5as4d.png"
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ const TestimonialCard = () => {
       role: "Founder",
       company: "Maseke Daniel Ministries",
       quote: "Godfrey developed an amazing mobile app and admin dashboard for our ministry. His dedication to quality and understanding of our needs made the project a huge success.",
-      image: "/maseke.png"
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/maseke_qdczyv.png"
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ const TestimonialCard = () => {
       role: "Lead Pastor",
       company: "Cornerstone Christian Centre",
       quote: "Godfrey built a comprehensive church management system that has revolutionized how we operate. His technical skills and understanding of our ministry needs are exceptional.",
-      image: "/cornerstone-app.png"
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518859/cornerstone-app_wvsai3.png"
     }
   ]
 

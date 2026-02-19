@@ -14,63 +14,63 @@ const ClientShowcase: React.FC = () => {
   const clients: Client[] = [
     {
       name: "Davion Wears",
-      logo: "/shop-with-davion.png",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518884/shop-with-davion_hjtrux.png",
       project: "E-commerce Platform",
       category: "E-commerce",
       link: "https://shopwithdavion.com/"
     },
     {
       name: "Josephine Chibuike",
-      logo: "/josephine-portfolio2.png",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png",
       project: "Portfolio Website",
       category: "Portfolio",
       link: "https://josephine-portfolio-one.vercel.app/"
     },
     {
       name: "Cornerstone Global",
-      logo: "/cornerstone-app.png",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518859/cornerstone-app_wvsai3.png",
       project: "Church Management App",
       category: "Full-Stack & Mobile Development",
       link: "https://app.cornerstoneglobal.org"
     },
     {
       name: "Mike + MikePartners",
-      logo: "/mikeandmike.png",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/mikeandmike_r5as4d.png",
       project: "Real Estate Platform",
       category: "Full-Stack Development",
       link: "https://mikeandmikepartners.com/"
     },
     {
       name: "MindfulYouth Hub",
-      logo: "/mindfulyouth2.png",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518881/mindfulyouth_ycaqgt.png",
       project: "Youth Education Platform",
       category: "Full-Stack & Mobile Development",
       link: "https://themindfulyouthhub.com/"
     },
     {
       name: "MovieAI",
-      logo: "/movie-ai.png",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/movie-ai_sp6qce.png",
       project: "AI Movie Recommendations",
       category: "AI Development",
       link: "https://movie-recommendation-nextjs.vercel.app/"
     },
     {
       name: "MovieAI",
-      logo: "/movie-ai2.png",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518883/movie-ai2_yzem9u.png",
         project: "AI Movie Recommendations",
       category: "AI Development",
       link: "https://movie-recommendation-nextjs.vercel.app/"
     },
     {
       name: "Maseke Daniel Ministries",
-      logo: "/maseke.png",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/maseke_qdczyv.png",
       project: "Admin Dashboard",
       category: "Full-Stack Development",
       link: "#"
     },
     {
       name: "Logistics Global",
-      logo: "/logistics.png",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518878/logistics_rzklto.png",
       project: "Logistics Platform",
       category: "Full-Stack Development",
       link: "#"

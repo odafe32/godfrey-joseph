@@ -146,7 +146,7 @@ const HeroSection = () => {
                   }}
                 >
                   <img 
-                    src="/odafe2.jpg" 
+                    src="https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/odafe2_u6tgl5.jpg" 
                     alt="Godfrey Joseph Sule – Full-Stack Web & Mobile Software Engineer" 
                     className="w-full h-full object-cover rounded-[50%] shadow-2xl image-glow transition-transform duration-300"
                   />

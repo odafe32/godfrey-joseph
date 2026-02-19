@@ -111,7 +111,7 @@ const BrandSupportSection: React.FC = () => {
               <div className="relative w-80 h-96 lg:w-96 lg:h-[480px]">
                 {/* Main Image */}
                 <img 
-                  src="/odafe2.jpg"
+                  src="https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/odafe2_u6tgl5.jpg"
                   alt="Godfrey Joseph - Full-Stack Software Engineer"
                   className="w-full h-full object-cover rounded-2xl shadow-2xl"
                 />

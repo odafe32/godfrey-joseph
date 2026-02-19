@@ -23,7 +23,7 @@ const PortfolioShowcase: React.FC = () => {
       title: "Davion Wears - Premium Fashion E-commerce",
       category: "E-commerce",
       number: "01",
-      image: "/shop-with-davion.png",
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518884/shop-with-davion_hjtrux.png",
       description: "Full-stack PWA e-commerce platform built with Laravel, React, REST API, and Shadcn UI. Features premium fashion products, shopping cart, user authentication, payment integration, admin backend, and dashboard for frontend control. Deployed on VPS with custom setup.",
       link: "https://shopwithdavion.com/"
     },
@@ -32,7 +32,7 @@ const PortfolioShowcase: React.FC = () => {
       title: "Josephine Chibuike",
       category: "Portfolio",
       number: "02",
-      image: "/josephine-portfolio2.png",
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png",
       description: "Professional portfolio website for a Brand Strategist and Virtual Assistant, built with modern web technologies. Features responsive design, brand strategy showcase, service offerings",
       link: "https://josephine-portfolio-one.vercel.app/"
     },
@@ -41,7 +41,7 @@ const PortfolioShowcase: React.FC = () => {
       title: "Cornerstone Global - Church Management App",
       category: "Full-Stack & Mobile Development",
       number: "03",
-      image: "/cornerstone-app.png",
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518859/cornerstone-app_wvsai3.png",
       description: "Full-stack church management application with mobile support, built using Laravel backend, REST API, Shadcn UI, TypeScript, and React Native. Features include giving, membership registration, devotionals, sermons, counselling, and comprehensive backend with admin panel for seamless church operations. Deployed on VPS with custom setup.",
       link: "https://app.cornerstoneglobal.org"
     },
@@ -50,7 +50,7 @@ const PortfolioShowcase: React.FC = () => {
       title: "Mike + MikePartners - Real Estate",
       category: "Full-Stack Development",
       number: "04",
-      image: "/mikeandmike.png",
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/mikeandmike_r5as4d.png",
       description: "Full-stack development for Mike + MikePartners, a real estate and architectural firm offering services in buying/selling/renting properties, architectural design, interior design, master planning, consultancy, and project management. Built with Laravel and PHP. Features company overview, team profiles, service listings, and project showcases.",
       link: "https://mikeandmikepartners.com/"
     },
@@ -68,9 +68,18 @@ const PortfolioShowcase: React.FC = () => {
       title: "MovieAI - AI Movie Recommendations",
       category: "AI Development",
       number: "06",
-      image: "/movie-ai.png",
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/movie-ai_sp6qce.png",
       description: "Revolutionizing movie discovery with AI-powered recommendations. Experience the future of movie discovery with advanced AI. Simply describe what you're in the mood for, and we'll find your perfect match. Features AI-powered recommendations, smart search using natural language processing, vast library across all genres, and advanced vector search technology.",
       link: "#"
+    },
+    {
+      id: 7,
+      title: "Workbrook - Mobile & Web Platform",
+      category: "Full-Stack & Mobile Development",
+      number: "07",
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771519269/ss_pdjcfj.png",
+      description: "Contributed to the development of Workbrook, a workforce management platform available on both web and mobile. Involved in building and shipping key features across the full stack, delivering a seamless experience for users managing work, teams, and productivity on the go.",
+      link: "https://web.workbrook.com/"
     },
     
   ];

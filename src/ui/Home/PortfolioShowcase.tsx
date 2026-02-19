@@ -81,6 +81,15 @@ const PortfolioShowcase: React.FC = () => {
       description: "Contributed to the development of Workbrook, a workforce management platform available on both web and mobile. Involved in building and shipping key features across the full stack, delivering a seamless experience for users managing work, teams, and productivity on the go.",
       link: "https://web.workbrook.com/"
     },
+    {
+      id: 8,
+      title: "Lightbearers - Christian Education Platform",
+      category: "Full-Stack Development",
+      number: "08",
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771523658/Screenshot_2026-02-19_185409_dfjytz.png",
+      description: "Faith-building platform providing Christ-centered devotionals, Bible-based affirmation cards, and spiritual resources for toddlers and young children. Features daily Bible readings, scripture affirmations, and tools to help parents establish consistent faith practices at home.",
+      link: "https://lightbearers.vercel.app/"
+    },
     
   ];
 

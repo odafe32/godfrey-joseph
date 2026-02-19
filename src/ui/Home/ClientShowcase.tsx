@@ -82,6 +82,13 @@ const ClientShowcase: React.FC = () => {
       category: "Full-Stack & Mobile Development",
       link: "https://web.workbrook.com/"
     },
+    {
+      name: "Lightbearers",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771523658/Screenshot_2026-02-19_185409_dfjytz.png",
+      project: "Christian Education Platform",
+      category: "Full-Stack Development",
+      link: "https://lightbearers.vercel.app/"
+    },
     // {
     //   name: "Content Strategy",
     //   logo: "/IMG_7449.JPG",

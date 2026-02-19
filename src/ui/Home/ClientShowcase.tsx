@@ -75,13 +75,13 @@ const ClientShowcase: React.FC = () => {
       category: "Full-Stack Development",
       link: "#"
     },
-    // {
-    //   name: "Project Management",
-    //   logo: "/IMG_7445.JPG",
-    //   project: "Project Coordination",
-    //   category: "DevOps",
-    //   link: "#"
-    // },
+    {
+      name: "Workbrook",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771519269/ss_pdjcfj.png",
+      project: "Mobile & Web Platform",
+      category: "Full-Stack & Mobile Development",
+      link: "https://web.workbrook.com/"
+    },
     // {
     //   name: "Content Strategy",
     //   logo: "/IMG_7449.JPG",

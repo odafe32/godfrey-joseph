@@ -31,7 +31,7 @@ const ClientShowcase: React.FC = () => {
       logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518859/cornerstone-app_wvsai3.png",
       project: "Church Management App",
       category: "Full-Stack & Mobile Development",
-      link: "https://app.cornerstoneglobal.org"
+      link: "https://cornerstoneglobal.org"
     },
     {
       name: "Mike + MikePartners",

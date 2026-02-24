@@ -43,7 +43,7 @@ const PortfolioShowcase: React.FC = () => {
       number: "03",
       image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518859/cornerstone-app_wvsai3.png",
       description: "Full-stack church management application with mobile support, built using Laravel backend, REST API, Shadcn UI, TypeScript, and React Native. Features include giving, membership registration, devotionals, sermons, counselling, and comprehensive backend with admin panel for seamless church operations. Deployed on VPS with custom setup.",
-      link: "https://app.cornerstoneglobal.org"
+      link: "https://cornerstoneglobal.org"
     },
     {
       id: 4,

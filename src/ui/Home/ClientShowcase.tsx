@@ -88,8 +88,8 @@ const ClientShowcase: React.FC = () => {
       project: "Christian Education Platform",
       category: "Full-Stack Development",
       link: "https://lightbearers.vercel.app/"
-    },
-    // {
+    }, 
+    // { 
     //   name: "Content Strategy",
     //   logo: "/IMG_7449.JPG",
     //   project: "Strategic Content Planning",

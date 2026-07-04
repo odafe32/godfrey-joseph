@@ -50,7 +50,7 @@ const PortfolioShowcase: React.FC = () => {
       title: "Mike + MikePartners - Real Estate",
       category: "Full-Stack Development",
       number: "04",
-      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/mikeandmike_r5as4d.png",
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1781540720/ARCHITECT_2-34_innvvc.jpg",
       description: "Full-stack development for Mike + MikePartners, a real estate and architectural firm offering services in buying/selling/renting properties, architectural design, interior design, master planning, consultancy, and project management. Built with Laravel and PHP. Features company overview, team profiles, service listings, and project showcases.",
       link: "https://mikeandmikepartners.com/"
     },
@@ -63,21 +63,22 @@ const PortfolioShowcase: React.FC = () => {
       description: "Full-stack web and mobile application for MindfulYouth Hub, a youth-focused creative and educational platform. Built with Laravel, React, and TypeScript. Features digital courses, coaching programs, creative content, and goal setting tools. Includes logo design and VPS deployment with custom setup.",
       link: "https://themindfulyouthhub.com/"
     },
+   
     {
       id: 6,
-      title: "MovieAI - AI Movie Recommendations",
-      category: "AI Development",
-      number: "06",
-      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/movie-ai_sp6qce.png",
-      description: "Revolutionizing movie discovery with AI-powered recommendations. Experience the future of movie discovery with advanced AI. Simply describe what you're in the mood for, and we'll find your perfect match. Features AI-powered recommendations, smart search using natural language processing, vast library across all genres, and advanced vector search technology.",
-      link: "#"
-    },
-    {
-      id: 7,
       title: "Workbrook - Mobile & Web Platform",
       category: "Full-Stack & Mobile Development",
       number: "07",
       image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771519269/ss_pdjcfj.png",
+      description: "Contributed to the development of Workbrook, a workforce management platform available on both web and mobile. Involved in building and shipping key features across the full stack, delivering a seamless experience for users managing work, teams, and productivity on the go.",
+      link: "https://web.workbrook.com/"
+    },
+    {
+      id: 7,
+      title: "Workbrook Website",
+      category: "Web Development",
+      number: "07",
+      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1783155848/Screenshot_2026-07-04_100242_ehegmk.png",
       description: "Contributed to the development of Workbrook, a workforce management platform available on both web and mobile. Involved in building and shipping key features across the full stack, delivering a seamless experience for users managing work, teams, and productivity on the go.",
       link: "https://web.workbrook.com/"
     },

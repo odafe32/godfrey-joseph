@@ -1,30 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Users, Lightbulb, Zap } from 'lucide-react';
 
 const AboutSection = () => {
-  const services = [
-    {
-      icon: Code,
-      title: "Full-Stack Development",
-      description: "Building scalable web applications with modern frameworks, APIs, and database architectures."
-    },
-    {
-      icon: Users,
-      title: "IT Consulting & Strategy",
-      description: "Providing technical guidance and strategic planning for digital transformation initiatives."
-    },
-    {
-      icon: Lightbulb,
-      title: "Solution Design & Architecture",
-      description: "Designing efficient, maintainable systems that solve real business problems."
-    },
-    {
-      icon: Zap,
-      title: "Performance Optimization",
-      description: "Improving system performance, scalability, and user experience through technical expertise."
-    }
-  ];
 
   return (
    <section id="about" className="py-20 lg:py-32 bg-white relative overflow-hidden">
@@ -117,7 +94,7 @@ const AboutSection = () => {
           >
             <div className="relative">
               <img 
-                src="https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/odafe2_u6tgl5.jpg"
+                src="https://res.cloudinary.com/dllrkis3c/image/upload/v1783156615/IMG-20260603-WA0048.jpg_ofcj2g.jpg"
                 alt="Godfrey Joseph Sule - Full-Stack Software Engineer"
                 className="w-full max-w-md lg:h-[400px] h-auto rounded-2xl shadow-2xl"
               />

@@ -4,7 +4,7 @@ import './HeroSection.css';
 
 const HeroSection = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [scrollY, setScrollY] = useState(0);
+  // const [scrollY, setScrollY] = useState(0);
   const heroRef = useRef(null);
   const imageRef = useRef(null);
 
@@ -146,7 +146,7 @@ const HeroSection = () => {
                   }}
                 >
                   <img 
-                    src="https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/odafe2_u6tgl5.jpg" 
+                    src="https://res.cloudinary.com/dllrkis3c/image/upload/v1783156615/IMG-20260603-WA0048.jpg_ofcj2g.jpg" 
                     alt="Godfrey Joseph Sule – Full-Stack Web & Mobile Software Engineer" 
                     className="w-full h-full object-cover rounded-[50%] shadow-2xl image-glow transition-transform duration-300"
                   />

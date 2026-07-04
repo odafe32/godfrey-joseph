@@ -13,12 +13,33 @@ interface Client {
 const ClientShowcase: React.FC = () => {
   const clients: Client[] = [
     {
-      name: "Davion Wears",
-      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518884/shop-with-davion_hjtrux.png",
-      project: "E-commerce Platform",
-      category: "E-commerce",
-      link: "https://shopwithdavion.com/"
+      name: "Workbrook Website",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1783155848/Screenshot_2026-07-04_100242_ehegmk.png",
+      project: "Website",
+      category: "Full-Stack & Mobile Development",
+      link: "https://workbrook.com/"
     },
+    {
+      name: "Workbrook-App",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771519269/ss_pdjcfj.png",
+      project: "Mobile & Web Platform",
+      category: "Full-Stack & Mobile Development",
+      link: "https://web.workbrook.com/"
+    },
+    {
+      name: "Mike + MikePartners",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1781540857/ARCHITECT_2-33_uesjdp.jpg",
+      project: "Real Estate Architecture firm",
+      category: "Full-Stack Development",
+      link: "https://mikeandmikepartners.com/"
+    },
+    // {
+    //   name: "Davion Wears",
+    //   logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518884/shop-with-davion_hjtrux.png",
+    //   project: "E-commerce Platform",
+    //   category: "E-commerce",
+    //   link: "https://shopwithdavion.com/"
+    // },
     {
       name: "Josephine Chibuike",
       logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png",
@@ -33,13 +54,7 @@ const ClientShowcase: React.FC = () => {
       category: "Full-Stack & Mobile Development",
       link: "https://cornerstoneglobal.org"
     },
-    {
-      name: "Mike + MikePartners",
-      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/mikeandmike_r5as4d.png",
-      project: "Real Estate Platform",
-      category: "Full-Stack Development",
-      link: "https://mikeandmikepartners.com/"
-    },
+
     {
       name: "MindfulYouth Hub",
       logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518881/mindfulyouth_ycaqgt.png",
@@ -48,40 +63,13 @@ const ClientShowcase: React.FC = () => {
       link: "https://themindfulyouthhub.com/"
     },
     {
-      name: "MovieAI",
-      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/movie-ai_sp6qce.png",
-      project: "AI Movie Recommendations",
-      category: "AI Development",
-      link: "https://movie-recommendation-nextjs.vercel.app/"
-    },
-    {
-      name: "MovieAI",
-      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518883/movie-ai2_yzem9u.png",
-        project: "AI Movie Recommendations",
-      category: "AI Development",
-      link: "https://movie-recommendation-nextjs.vercel.app/"
-    },
-    {
-      name: "Maseke Daniel Ministries",
-      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/maseke_qdczyv.png",
-      project: "Admin Dashboard",
-      category: "Full-Stack Development",
+      name: "Gefyra Agency",
+      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1783156355/Screenshot_2026-07-04_101204_bomdpo.png",
+      project: "Digital Consulting Agency",
+      category: "Consulting Agency",
       link: "#"
     },
-    {
-      name: "Logistics Global",
-      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518878/logistics_rzklto.png",
-      project: "Logistics Platform",
-      category: "Full-Stack Development",
-      link: "#"
-    },
-    {
-      name: "Workbrook",
-      logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771519269/ss_pdjcfj.png",
-      project: "Mobile & Web Platform",
-      category: "Full-Stack & Mobile Development",
-      link: "https://web.workbrook.com/"
-    },
+    
     {
       name: "Lightbearers",
       logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771523658/Screenshot_2026-02-19_185409_dfjytz.png",
@@ -133,7 +121,7 @@ const ClientShowcase: React.FC = () => {
 
         {/* Client Grid - Seamless Images */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0">
-          {clients.map((client, index) => (
+          {clients.map((client) => (
             <a href={client.link || "#"} target={client.link && client.link !== "#" ? "_blank" : "_self"} className="block group relative overflow-hidden">
               {/* Image Container - Full Size */}
               <div className="relative w-full h-64 aspect-square">

@@ -1,352 +1,208 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
 interface Project {
   id: number;
   title: string;
   category: string;
-  number: string;
   image: string;
-  description?: string;
+  description: string;
+  stack: string[];
   link: string;
 }
 
+const projects: Project[] = [
+  {
+    id: 1,
+    title: "Davion Wears",
+    category: "E-commerce",
+    image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518884/shop-with-davion_hjtrux.png",
+    description: "A full-stack progressive web app for a premium fashion brand. Delivered end-to-end — from product catalogue and shopping cart to payment integration, user authentication, and a custom admin dashboard. Deployed on a VPS with a custom server setup.",
+    stack: ["Laravel", "React", "REST API", "Shadcn UI"],
+    link: "https://shopwithdavion.com/"
+  },
+  {
+    id: 2,
+    title: "Workbrook Website",
+    category: "Web Development",
+    image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1783155848/Screenshot_2026-07-04_100242_ehegmk.png",
+    description: "Contributed to the marketing website for Workbrook, a workforce management platform. Built and shipped key pages and UI components, ensuring a polished, responsive, and production-ready experience.",
+    stack: ["React", "TypeScript"],
+    link: "https://workbrook.com/"
+  },
+  {
+    id: 3,
+    title: "Workbrook App",
+    category: "Full-Stack & Mobile",
+    image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771519269/ss_pdjcfj.png",
+    description: "Contributed to the core web and mobile platform for Workbrook. Built full-stack features covering work management, team collaboration, and real-time productivity tools — shipped across both web and mobile.",
+    stack: ["React", "React Native", "TypeScript"],
+    link: "https://web.workbrook.com/"
+  },
+  {
+    id: 4,
+    title: "Mike + MikePartners",
+    category: "Full-Stack",
+    image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1781540857/ARCHITECT_2-33_uesjdp.jpg",
+    description: "Built the full company website for a real estate and architectural firm. Includes property listings, service pages, team profiles, and project showcases — presenting the brand with clarity and professionalism.",
+    stack: ["Laravel", "PHP"],
+    link: "https://mikeandmikepartners.com/"
+  },
+  {
+    id: 5,
+    title: "Cornerstone Global",
+    category: "Full-Stack & Mobile",
+    image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518859/cornerstone-app_wvsai3.png",
+    description: "A comprehensive church management platform with web and mobile support. Built features for online giving, membership registration, devotionals, sermon access, and counselling — plus a full admin panel for church operations.",
+    stack: ["Laravel", "React Native", "TypeScript", "Shadcn UI"],
+    link: "https://cornerstoneglobal.org"
+  },
+  {
+    id: 6,
+    title: "MindfulYouth Hub",
+    category: "Full-Stack & Mobile",
+    image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518881/mindfulyouth_ycaqgt.png",
+    description: "Built a creative and educational platform for young people. Delivered digital courses, coaching programmes, and goal-setting tools across web and mobile. Also handled logo design and full VPS deployment.",
+    stack: ["Laravel", "React", "TypeScript"],
+    link: "https://themindfulyouthhub.com/"
+  },
+  {
+    id: 7,
+    title: "Josephine Chibuike",
+    category: "Portfolio",
+    image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png",
+    description: "Designed and built a professional portfolio site for a Brand Strategist and Virtual Assistant. Showcases her services, brand strategy work, and client experience — fully responsive and optimised for conversions.",
+    stack: ["React", "Tailwind CSS"],
+    link: "https://josephine-portfolio-one.vercel.app/"
+  },
+  {
+    id: 8,
+    title: "Gefyra Agency",
+    category: "Web Development",
+    image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1783156355/Screenshot_2026-07-04_101204_bomdpo.png",
+    description: "Built the website for a digital consulting agency. Clean, modern design with a clear focus on presenting the agency's services, team, and case studies in a compelling and professional way.",
+    stack: ["React", "Tailwind CSS"],
+    link: "#"
+  },
+  {
+    id: 9,
+    title: "Lightbearers",
+    category: "Full-Stack",
+    image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771523658/Screenshot_2026-02-19_185409_dfjytz.png",
+    description: "A faith-building platform for Christian families. Built daily devotionals, Bible-based affirmation cards, and spiritual resources tailored for toddlers and young children, helping parents nurture faith at home.",
+    stack: ["React", "Vercel"],
+    link: "https://lightbearers.vercel.app/"
+  },
+];
+
+const CATEGORIES = ["All", "Full-Stack & Mobile", "Full-Stack", "Web Development", "E-commerce", "Portfolio"];
+
 const PortfolioShowcase: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoRotating, setIsAutoRotating] = useState(true);
-  const [carouselSize, setCarouselSize] = useState({ width: 400, height: 600 });
-  const [radius, setRadius] = useState(320);
-  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [activeCategory, setActiveCategory] = useState("All");
 
-  const projects: Project[] = [
-    {
-      id: 1,
-      title: "Davion Wears - Premium Fashion E-commerce",
-      category: "E-commerce",
-      number: "01",
-      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518884/shop-with-davion_hjtrux.png",
-      description: "Full-stack PWA e-commerce platform built with Laravel, React, REST API, and Shadcn UI. Features premium fashion products, shopping cart, user authentication, payment integration, admin backend, and dashboard for frontend control. Deployed on VPS with custom setup.",
-      link: "https://shopwithdavion.com/"
-    },
-    {
-      id: 2,
-      title: "Josephine Chibuike",
-      category: "Portfolio",
-      number: "02",
-      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png",
-      description: "Professional portfolio website for a Brand Strategist and Virtual Assistant, built with modern web technologies. Features responsive design, brand strategy showcase, service offerings",
-      link: "https://josephine-portfolio-one.vercel.app/"
-    },
-    {
-      id: 3,
-      title: "Cornerstone Global - Church Management App",
-      category: "Full-Stack & Mobile Development",
-      number: "03",
-      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518859/cornerstone-app_wvsai3.png",
-      description: "Full-stack church management application with mobile support, built using Laravel backend, REST API, Shadcn UI, TypeScript, and React Native. Features include giving, membership registration, devotionals, sermons, counselling, and comprehensive backend with admin panel for seamless church operations. Deployed on VPS with custom setup.",
-      link: "https://cornerstoneglobal.org"
-    },
-    {
-      id: 4,
-      title: "Mike + MikePartners - Real Estate",
-      category: "Full-Stack Development",
-      number: "04",
-      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1781540720/ARCHITECT_2-34_innvvc.jpg",
-      description: "Full-stack development for Mike + MikePartners, a real estate and architectural firm offering services in buying/selling/renting properties, architectural design, interior design, master planning, consultancy, and project management. Built with Laravel and PHP. Features company overview, team profiles, service listings, and project showcases.",
-      link: "https://mikeandmikepartners.com/"
-    },
-    {
-      id: 5,
-      title: "MindfulYouth Hub",
-      category: "Full-Stack & Mobile Development",
-      number: "05",
-      image: "/mindfulyouth.png",
-      description: "Full-stack web and mobile application for MindfulYouth Hub, a youth-focused creative and educational platform. Built with Laravel, React, and TypeScript. Features digital courses, coaching programs, creative content, and goal setting tools. Includes logo design and VPS deployment with custom setup.",
-      link: "https://themindfulyouthhub.com/"
-    },
-   
-    {
-      id: 6,
-      title: "Workbrook - Mobile & Web Platform",
-      category: "Full-Stack & Mobile Development",
-      number: "07",
-      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771519269/ss_pdjcfj.png",
-      description: "Contributed to the development of Workbrook, a workforce management platform available on both web and mobile. Involved in building and shipping key features across the full stack, delivering a seamless experience for users managing work, teams, and productivity on the go.",
-      link: "https://web.workbrook.com/"
-    },
-    {
-      id: 7,
-      title: "Workbrook Website",
-      category: "Web Development",
-      number: "07",
-      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1783155848/Screenshot_2026-07-04_100242_ehegmk.png",
-      description: "Contributed to the development of Workbrook, a workforce management platform available on both web and mobile. Involved in building and shipping key features across the full stack, delivering a seamless experience for users managing work, teams, and productivity on the go.",
-      link: "https://web.workbrook.com/"
-    },
-    {
-      id: 8,
-      title: "Lightbearers - Christian Education Platform",
-      category: "Full-Stack Development",
-      number: "08",
-      image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771523658/Screenshot_2026-02-19_185409_dfjytz.png",
-      description: "Faith-building platform providing Christ-centered devotionals, Bible-based affirmation cards, and spiritual resources for toddlers and young children. Features daily Bible readings, scripture affirmations, and tools to help parents establish consistent faith practices at home.",
-      link: "https://lightbearers.vercel.app/"
-    },
-    
-  ];
-
-  // Responsive carousel size and radius
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setCarouselSize({ width: 300, height: 450 });
-        setRadius(200);
-      } else {
-        setCarouselSize({ width: 400, height: 600 });
-        setRadius(320);
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Auto-rotation effect
-  useEffect(() => {
-    if (isAutoRotating) {
-      intervalRef.current = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % projects.length);
-      }, 4000);
-    }
-
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
-  }, [isAutoRotating, projects.length]);
-
-  const handleProjectClick = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoRotating(false);
-    
-    // Resume auto-rotation after 10 seconds
-    setTimeout(() => {
-      setIsAutoRotating(true);
-    }, 10000);
-  };
-
-  const getTransform = (index: number) => {
-    const diff = index - currentIndex;
-    const totalProjects = projects.length;
-    
-    // Calculate angle for circular arrangement
-    const angle = (360 / totalProjects) * diff;
-    
-    // Calculate 3D position
-    const x = Math.sin((angle * Math.PI) / 180) * radius;
-    const z = Math.cos((angle * Math.PI) / 180) * radius - radius;
-    
-    // Scale and opacity based on position
-    const scale = diff === 0 ? 1.2 : Math.max(0.7, 1 - Math.abs(diff) * 0.2);
-    const opacity = diff === 0 ? 1 : Math.max(0.4, 1 - Math.abs(diff) * 0.3);
-    
-    return {
-      transform: `translate3d(${x}px, 0, ${z}px) scale(${scale})`,
-      opacity,
-      zIndex: diff === 0 ? 10 : Math.max(1, 5 - Math.abs(diff))
-    };
-  };
+  const filtered = activeCategory === "All"
+    ? projects
+    : projects.filter((p) => p.category === activeCategory);
 
   return (
-    <section className="relative py-20 lg:py-32 bg-gradient-to-b from-gray-50 via-white to-gray-50 overflow-hidden" id="projects">
-      
-      {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Abstract shapes */}
-        <div className="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-[#3d5a8c]/20 to-blue-600/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-blue-600/20 to-[#3d5a8c]/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-conic from-[#3d5a8c]/10 via-transparent to-[#3d5a8c]/10 rounded-full animate-spin" style={{ animationDuration: '60s' }} />
-      </div>
+    <section id="projects" className="py-20 lg:py-32 bg-gray-50">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
         {/* Header */}
-        <div className="text-center mb-16 lg:mb-20">
-          <div className="inline-block">
-            <span className="text-[#3d5a8c]/80 text-sm font-semibold tracking-wider uppercase  px-4 py-2 rounded-full mb-6 inline-block animate-[fadeInUp_1s_ease-out]">
-              Portfolio
-            </span>
-          </div>
-          
-       
-            <motion.h2 
-                      initial={{ opacity: 0, y: 20 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.6, delay: 0.1 }}
-                      className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
-                    >
-              Featured Projects & Solutions
-                    </motion.h2>
-          
-          <p className="text-lg sm:text-md text-gray-600 max-w-2xl mx-auto mb-8 animate-[fadeInUp_1s_ease-out] [animation-delay:0.4s] [animation-fill-mode:both]">
-          Real-world solutions I've built, from web applications and mobile apps to cloud infrastructure and digital transformation projects
-          </p>
-          
-          {/* CTA Button */}
-          {/* <button className="group relative inline-flex items-center gap-3 bg-[#7d4934] hover:bg-[#7d4934]/90 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl animate-[fadeInUp_1s_ease-out] [animation-delay:0.6s] [animation-fill-mode:both]">
-            <span>See more Projects</span>
-            <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center group-hover:rotate-45 transition-transform duration-300">
-              <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"/>
-              </svg>
-            </div>
-          </button> */}
-        </div>
-
-        {/* 3D Carousel */}
-        <div className="relative overflow-hidden mb-8 lg:mb-0">
-          <div 
-            className="flex justify-center items-center mx-auto"
-            style={{ 
-              perspective: '1000px',
-              height: `${carouselSize.height}px`
-            }}
+        <div className="text-center mb-12">
+          <span className="text-[#3d5a8c]/80 text-sm font-semibold tracking-wider uppercase bg-[#3d5a8c]/10 px-4 py-2 rounded-full inline-block mb-4">
+            Portfolio
+          </span>
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4"
           >
-            <motion.div 
-              className="relative"
-              style={{ 
-                transformStyle: 'preserve-3d',
-                width: `${carouselSize.width}px`,
-                height: `${carouselSize.height}px`
-              }}
-            >
-              {projects.map((project, index) => (
-                <a
-                  key={project.id}
-                  href={project.link}
-                  target='blank'
-                  className="absolute cursor-pointer transition-all duration-700 ease-out"
-                  style={{
-                    width: '300px',
-                    height: '400px',
-                    left: '50px',
-                    top: '50px',
-                    ...getTransform(index)
-                  }}
-                  onClick={(e) => {
-                    // Allow carousel navigation on middle click or ctrl+click
-                    if (e.metaKey || e.ctrlKey) {
-                      e.preventDefault();
-                      handleProjectClick(index);
-                    }
-                  }}
-                >
-                  {/* Project Card */}
-                  <div className="relative w-full h-full group">
-                    {/* Image Container */}
-                    <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-gray-100 to-gray-200">
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover"
-                      />
-
-                      {/* Overlay */}
-                      <div className={`absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent transition-opacity duration-300 ${index === currentIndex ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'}`} />
-
-                      {/* Content Overlay */}
-                      <div className={`absolute bottom-0 left-0 right-0 p-6 transform transition-transform duration-300 ${index === currentIndex ? 'translate-y-0' : 'translate-y-full group-hover:translate-y-0'}`}>
-                        <div className="text-white">
-                          <span className="text-[#3d5a8c] text-sm font-medium">#{project.number}</span>
-                          <h3 className="text-xl font-bold mb-1">{project.title}</h3>
-                          <p className="text-gray-200 text-sm">{project.category}</p>
-                        </div>
-                      </div>
-
-                      {/* Hover Border */}
-                      <div className="absolute inset-0 border-2 border-[#3d5a8c] rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    </div>
-                  </div>
-                </a>
-              ))}
-            </motion.div>
-          </div>
-
-          {/* Navigation Controls */}
-          <div className="absolute bottom-[-5px] left-1/2 -translate-x-1/2 z-20 flex items-center justify-center gap-4">
-            {/* Previous Button */}
-            <button
-              onClick={() => handleProjectClick((currentIndex - 1 + projects.length) % projects.length)}
-              className="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110"
-              aria-label="Previous project"
-            >
-              <svg className="w-5 h-5 text-[#3d5a8c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-
-            {/* Navigation Dots */}
-            <div className="flex items-center gap-3">
-              {projects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleProjectClick(index)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? 'bg-[#3d5a8c] scale-125'
-                      : 'bg-gray-300 hover:bg-gray-400'
-                  }`}
-                  aria-label={`Go to project ${index + 1}`}
-                />
-              ))}
-            </div>
-
-            {/* Next Button */}
-            <button
-              onClick={() => handleProjectClick((currentIndex + 1) % projects.length)}
-              className="w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:bg-gray-50 transition-all duration-300 hover:scale-110"
-              aria-label="Next project"
-            >
-              <svg className="w-5 h-5 text-[#3d5a8c]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-
-          {/* Project Info Panel */}
-          <div className="relative lg:absolute lg:bottom-10 lg:left-auto lg:right-10 lg:w-80 mt-4 lg:mt-0">
-            <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/50">
-              <div className="flex items-center gap-4 mb-4">
-                <span className="text-[#3d5a8c] text-2xl font-black">#{projects[currentIndex].number}</span>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-900">{projects[currentIndex].title}</h3>
-                  <p className="text-gray-600 text-sm">{projects[currentIndex].category}</p>
-                </div>
-              </div>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                {projects[currentIndex].description}
-              </p>
-
-              {/* Auto-rotation indicator */}
-
-            </div>
-          </div>
+            Projects & Solutions
+          </motion.h2>
+          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+            A selection of real-world projects I've designed, built, and shipped — across web, mobile, and cloud platforms.
+          </p>
         </div>
-      </div>
 
-      <style>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(30px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+        {/* Filter Tabs */}
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
+          {CATEGORIES.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
+                activeCategory === cat
+                  ? 'bg-[#3d5a8c] text-white shadow-md'
+                  : 'bg-white text-gray-500 border border-gray-200 hover:border-[#3d5a8c] hover:text-[#3d5a8c]'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Projects Grid */}
+        <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-7">
+          <AnimatePresence>
+            {filtered.map((project) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.3 }}
+                className="group flex flex-col bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
+              >
+                {/* Image */}
+                <div className="relative h-52 overflow-hidden bg-gray-100">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-3 left-3">
+                    <span className="text-xs font-semibold text-[#3d5a8c] bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
+                      {project.category}
+                    </span>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col flex-1 p-6">
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{project.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-5 flex-1">{project.description}</p>
+
+                  {/* CTA */}
+                  {project.link !== "#" ? (
+                    <a
+                      href={project.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-white bg-[#3d5a8c] hover:bg-[#3d5a8c]/90 px-4 py-2.5 rounded-lg transition-all duration-200 self-start"
+                    >
+                      View Project
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <span className="text-xs font-medium text-gray-400 border border-gray-200 px-4 py-2.5 rounded-lg self-start">
+                      Private Project
+                    </span>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        {filtered.length === 0 && (
+          <p className="text-center text-gray-400 mt-16 text-base">No projects in this category yet.</p>
+        )}
+      </div>
     </section>
   );
 };

@@ -5,7 +5,6 @@ import ServicesSection from './ui/Home/ServicesSection'
 import Footer from './ui/Home/Footer'
 import Preloader from './components/Preloader'
 import PortfolioShowcase from './ui/Home/PortfolioShowcase'
-import ClientShowcase from './ui/Home/ClientShowcase'
 import HowIWork from './ui/Home/WorkToolkit'
 import ImpactMetrics from './ui/Home/ImpactMetrics'
 import TestimonialCard from './ui/Home/TestimonialCard'
@@ -21,8 +20,7 @@ function App() {
       <AboutSection/>
       <ServicesSection/>
 
-      <ClientShowcase/>
-            <PortfolioShowcase/>
+      <PortfolioShowcase/>
       {/* <ALXSection/> */}
       <HowIWork/>
       <ImpactMetrics/>

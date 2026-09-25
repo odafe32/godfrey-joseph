@@ -16,6 +16,7 @@ export default {
   		},
   		fontFamily: {
   			sans: ['Montserrat', ...defaultTheme.fontFamily.sans],
+  			display: ['"Barlow Condensed"', 'Montserrat', ...defaultTheme.fontFamily.sans],
   		},
   		colors: {
   			background: 'hsl(var(--background))',

@@ -1,181 +1,116 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Search, Settings, Target, BarChart3, Zap, TrendingUp, CheckCircle2, TrendingDown, Activity } from 'lucide-react';
+import { Search, Compass, Code2, Rocket, CheckCircle2 } from 'lucide-react';
+import SectionHeader from '@/components/SectionHeader';
 
 interface WorkStep {
   id: number;
   title: string;
   description: string;
+  points: string[];
   icon: React.ElementType;
-  bgColor: string;
-  iconColor: string;
 }
 
+const workSteps: WorkStep[] = [
+  {
+    id: 1,
+    title: "Discover",
+    description: "Every project starts with understanding — the problem, the people it serves, and what success actually looks like.",
+    points: ["Requirements & goals", "User & business needs", "Feasibility & scope"],
+    icon: Search,
+  },
+  {
+    id: 2,
+    title: "Design",
+    description: "Before a line of code, I plan the system — architecture, data flow, and an interface people can actually use.",
+    points: ["System architecture", "Wireframes & UX", "Technology choices"],
+    icon: Compass,
+  },
+  {
+    id: 3,
+    title: "Build",
+    description: "Iterative development with regular check-ins — you see progress as it happens, not just at the end.",
+    points: ["Agile development", "Clean, tested code", "Regular demos"],
+    icon: Code2,
+  },
+  {
+    id: 4,
+    title: "Ship & Support",
+    description: "Deployment is the beginning, not the end — monitoring, maintenance, and improvements after launch.",
+    points: ["Deployment & CI/CD", "Monitoring & fixes", "Ongoing improvements"],
+    icon: Rocket,
+  },
+];
+
+const fadeUp = (delay = 0) => ({
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: false },
+  transition: { duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] as const },
+});
+
 const HowIWork: React.FC = () => {
-  const workSteps: WorkStep[] = [
-    {
-      id: 1,
-      title: "Discovery & Analysis",
-      description: "Understand project requirements, user needs, technical specifications, and feasibility analysis.",
-      icon: Search,
-      bgColor: "bg-orange-50",
-      iconColor: "text-orange-500"
-    },
-    {
-      id: 2,
-      title: "Design & Architecture",
-      description: "Plan system architecture, choose technologies, create wireframes, and design user interfaces.",
-      icon: Settings,
-      bgColor: "bg-blue-50", 
-      iconColor: "text-blue-500"
-    },
-    {
-      id: 3,
-      title: "Development",
-      description: "Code implementation, version control, agile development, and iterative building.",
-      icon: Zap,
-      bgColor: "bg-teal-50",
-      iconColor: "text-teal-500"
-    },
-    {
-      id: 4,
-      title: "Testing & Deployment",
-      description: "Quality assurance, CI/CD pipelines, launch, monitoring, and maintenance.",
-      icon: Activity,
-      bgColor: "bg-purple-50",
-      iconColor: "text-purple-500"
-    }
-  ];
-
   return (
-    <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
-      
-      {/* Background Pattern - subtle grid */}
-      <div className="absolute inset-0 opacity-[0.02]">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `
-            linear-gradient(rgba(61, 90, 140, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(61, 90, 140, 0.03) 1px, transparent 1px)
-          `,
-          backgroundSize: '20px 20px'
-        }} />
-      </div>
+    <section className="py-20 lg:py-28 bg-white dark:bg-[#0d0d0f] relative overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <SectionHeader
+          eyebrow="Process"
+          title="How I Work"
+          description="Client project or my own product — every build follows the same disciplined path from idea to shipped solution."
+        />
 
-      <div className="container mx-auto px-6 lg:px-8 relative z-10">
-        
-        {/* Left side with header - matches sidebar style */}
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20">
-          
-          {/* Left Column - Header */}
-          <div className="lg:col-span-5">
-            <div className="lg:sticky lg:top-20">
-              <motion.h2 
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="text-4xl lg:text-5xl xl:text-6xl font-light text-gray-800 mb-8 leading-tight"
+        <div className="relative">
+          {/* Connecting line */}
+          <div className="absolute left-8 top-10 bottom-10 hidden w-px bg-gradient-to-b from-[#d4a017]/60 via-gray-200 to-transparent dark:via-white/10 md:block" />
+
+          <div className="space-y-8">
+            {workSteps.map((step, index) => (
+              <motion.div
+                key={step.id}
+                {...fadeUp(0.1 + index * 0.1)}
+                className="group relative flex flex-col gap-5 rounded-2xl border border-gray-200 bg-gray-50/50 p-6 transition-all duration-300 hover:border-[#d4a017]/50 hover:bg-white hover:shadow-lg dark:border-white/10 dark:bg-[#141414]/60 dark:hover:bg-[#141414] sm:p-8 md:ml-20 md:flex-row md:items-start md:gap-8"
               >
-                How I Work
-              </motion.h2>
-              
-              <motion.p 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="text-lg text-gray-600 leading-relaxed mb-12 max-w-lg"
-              >
-                My software development methodology ensures robust, scalable solutions from concept to deployment.
-              </motion.p>
-
-              {/* Progress indicators */}
-              <div className="hidden lg:block space-y-4">
-                {workSteps.map((step, index) => (
-                  <motion.div
-                    key={step.id}
-                    initial={{ opacity: 0, x: -10 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.4, delay: 0.3 + (index * 0.1) }}
-                    className="flex items-center text-sm text-gray-400 group-hover:text-[#3d5a8c] transition-colors duration-300"
-                  >
-                    <div className={`w-2 h-2 rounded-full mr-3 transition-colors duration-300 ${
-                      index < workSteps.length - 1 ? 'bg-gray-300 group-hover:bg-[#3d5a8c]' : 'bg-green-500'
-                    }`}></div>
-                    <span className="font-medium">{step.title}</span>
-                    {index < workSteps.length - 1 && (
-                      <CheckCircle2 className="w-4 h-4 ml-auto text-green-500" />
-                    )}
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column - Process Steps */}
-          <div className="lg:col-span-7">
-            <div className="space-y-12">
-              {workSteps.map((step, index) => (
-                <motion.div
-                  key={step.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.4 + (index * 0.15) }}
-                  className="group relative"
-                >
-                  {/* Connecting line for all but last */}
-                  {index < workSteps.length - 1 && (
-                    <div className="absolute left-8 top-16 w-px h-20 bg-gradient-to-b from-gray-200 to-transparent"></div>
-                  )}
-
-                  <div className="flex items-start gap-6">
-                    {/* Icon */}
-                    <motion.div 
-                      initial={{ scale: 0.8 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ duration: 0.3, delay: 0.5 + (index * 0.15) }}
-                      className={`flex-shrink-0 w-16 h-16 rounded-2xl ${step.bgColor} flex items-center justify-center group-hover:scale-105 transition-all duration-300 shadow-md border border-gray-100`}
-                    >
-                      <step.icon className={`w-6 h-6 ${step.iconColor}`} />
-                    </motion.div>
-
-                    {/* Content */}
-                    <div className="flex-1 pt-2">
-                      <motion.h3 
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.6 + (index * 0.15) }}
-                        className="text-2xl font-semibold text-gray-900 mb-4 group-hover:text-gray-700 transition-colors duration-300"
-                      >
-                        {step.title}
-                      </motion.h3>
-                      <motion.p 
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.4, delay: 0.7 + (index * 0.15) }}
-                        className="text-gray-600 leading-relaxed text-base"
-                      >
-                        {step.description}
-                      </motion.p>
-                    </div>
+                {/* Step number + icon — sits on the line */}
+                <div className="md:absolute md:-left-20 md:top-8 flex items-center gap-4">
+                  <div className="grid h-16 w-16 shrink-0 place-items-center rounded-2xl bg-gradient-to-br from-[#d4a017] to-[#b8860b] text-white shadow-lg shadow-[#d4a017]/25 transition-transform duration-300 group-hover:scale-110">
+                    <step.icon className="h-7 w-7" />
                   </div>
-                </motion.div>
-              ))}
-            </div>
+                </div>
 
-            {/* Bottom Quote */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 1.2 }}
-              className="mt-16 pt-12 border-t border-gray-100"
-            >
-              <div className="bg-gradient-to-r from-[#3d5a8c]/5 to-amber-600/5 rounded-2xl p-8">
-                <p className="text-gray-700 text-lg italic leading-relaxed">
-                  "Software development is not about perfection — it's about functionality and scalability."
-                </p>
-              </div>
-            </motion.div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-baseline gap-3">
+                    <span className="font-display text-sm font-bold tracking-[0.2em] text-[#9a6f00] dark:text-[#e9c766]">
+                      {String(step.id).padStart(2, '0')}
+                    </span>
+                    <h3 className="font-display text-3xl font-bold uppercase tracking-wide text-gray-900 dark:text-white">
+                      {step.title}
+                    </h3>
+                  </div>
+                  <p className="mt-2 max-w-2xl leading-relaxed text-gray-600 dark:text-gray-400">
+                    {step.description}
+                  </p>
+                </div>
+
+                <ul className="flex shrink-0 flex-col gap-2 md:pt-1">
+                  {step.points.map((point) => (
+                    <li key={point} className="flex items-center gap-2 text-sm font-medium text-gray-600 dark:text-gray-300">
+                      <CheckCircle2 className="h-4 w-4 text-[#d4a017]" />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            ))}
           </div>
         </div>
+
+        {/* Bottom note */}
+        <motion.p
+          {...fadeUp(0.5)}
+          className="mx-auto mt-14 max-w-2xl text-center text-lg italic leading-relaxed text-gray-600 dark:text-gray-300"
+        >
+          "Good software isn't just written — it's understood, designed and shipped with purpose."
+        </motion.p>
       </div>
     </section>
   );

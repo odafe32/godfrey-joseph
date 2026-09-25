@@ -1,8 +1,11 @@
 import React, { useEffect } from 'react';
-import { motion, Variants, TargetAndTransition } from 'framer-motion';
-import { ArrowRight, Facebook, Instagram, Youtube, Music, Linkedin, Github } from 'lucide-react';
+import { motion, Variants } from 'framer-motion';
+import { Instagram, Linkedin, Github, Youtube, Facebook } from 'lucide-react';
+import PillButton from '@/components/PillButton';
+import { useSettings } from '@/data/settingsStore';
 
 const Footer = () => {
+  const settings = useSettings();
   useEffect(() => {
     // Trigger animation after component mounts
     const timer = setTimeout(() => {
@@ -85,8 +88,13 @@ const Footer = () => {
             className="space-y-6"
           >
             <motion.div variants={itemVariants}>
+              <img
+                src="/logo-mono.png"
+                alt="Godfrey Joseph logo"
+                className="h-14 w-auto rounded-lg mb-4"
+              />
               <h3 className="text-2xl font-bold text-white">Godfrey Joseph</h3>
-              <p className="text-[#3d5a8c] text-sm mt-2">Full-Stack Software Engineer</p>
+              <p className="text-[#d4a017] text-sm mt-2">Full-Stack Software Engineer</p>
             </motion.div>
             
             <motion.p 
@@ -96,23 +104,11 @@ const Footer = () => {
               Delivering scalable software solutions and IT consulting services that drive business growth and innovation.
             </motion.p>
 
-            <motion.a href="mailto:godfrey.joseph@example.com"   variants={itemVariants}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}>
-            <button 
-            
-              className="group bg-[#3d5a8c] text-white px-6 py-3 rounded-full flex items-center space-x-2 hover:bg-[#3d5a8c]/90 transition-all duration-300"
-            >
-              <span>Get in touch</span>
-              <motion.div 
-                className="bg-white text-[#3d5a8c] rounded-full p-1 ml-2 group-hover:scale-110 transition-transform"
-                whileHover={{ rotate: 360 }}
-                transition={{ duration: 0.3 }}
-              >
-                <ArrowRight className="h-3 w-3" />
-              </motion.div>
-            </button>
-            </motion.a>
+            <motion.div variants={itemVariants}>
+            <PillButton href="/#contact" variant="gold" arrow>
+              Get in touch
+            </PillButton>
+            </motion.div>
           </motion.div>
 
           {/* Middle Section - Menu */}
@@ -122,13 +118,13 @@ const Footer = () => {
           >
             <motion.h4 
               variants={itemVariants}
-              className="text-[#3d5a8c] font-semibold text-lg"
+              className="text-[#3d5a8c] dark:text-[#8fb4e8] font-semibold text-lg"
             >Menu</motion.h4>
             <motion.nav 
               variants={itemVariants}
               className="space-y-3"
             >
-              {['Home', 'About', 'Services', 'Projects', 'Contact'].map((item, index) => (
+              {['Home', 'About', 'Services', 'Projects', 'Contact'].map((item) => (
                 <motion.a 
                   key={item}
                   href={`#${item.toLowerCase()}`}
@@ -150,17 +146,19 @@ const Footer = () => {
           >
             <motion.h4 
               variants={itemVariants}
-              className="text-[#3d5a8c] font-semibold text-lg"
+              className="text-[#3d5a8c] dark:text-[#8fb4e8] font-semibold text-lg"
             >Social</motion.h4>
             <motion.nav 
               variants={itemVariants}
               className="space-y-3"
             >
               {[
-                { icon: Github, name: 'GitHub', href: 'https://github.com/odafe32' },
-                { icon: Instagram, name: 'Instagram', href: 'https://www.instagram.com/godfrey_joseph_' },
-                { icon: Linkedin, name: 'LinkedIn', href: 'https://www.linkedin.com/in/godfrey-joseph-odafe-0992691a8/' }
-              ].map((social, index) => {
+                { icon: Github, name: 'GitHub', href: settings.socials.github },
+                { icon: Youtube, name: 'YouTube', href: settings.socials.youtube },
+                { icon: Facebook, name: 'Facebook', href: settings.socials.facebook },
+                { icon: Instagram, name: 'Instagram', href: settings.socials.instagram },
+                { icon: Linkedin, name: 'LinkedIn', href: settings.socials.linkedin }
+              ].filter((social) => social.href).map((social) => {
                 const IconComponent = social.icon;
                 return (
                   <motion.a 
@@ -198,32 +196,18 @@ const Footer = () => {
           >
             <motion.p 
               variants={itemVariants}
-              className="text-gray-500 text-xs"
+              className="text-gray-500 dark:text-gray-400 text-xs"
             >
               ©{new Date().getFullYear()} Copyright
             </motion.p>
-            <span className="hidden md:inline text-gray-500 text-xs">•</span>
+            <span className="hidden md:inline text-gray-500 dark:text-gray-400 text-xs">•</span>
             <motion.p 
               variants={itemVariants}
-              className="text-gray-500 text-xs"
+              className="text-gray-500 dark:text-gray-400 text-xs"
             >
               All rights reserved
             </motion.p>
-            <span className="hidden md:inline text-gray-500 text-xs">•</span>
-            <motion.p 
-              variants={itemVariants}
-              className="text-gray-500 text-xs"
-            >
-                <motion.a 
-                  href="https://kagaykiglobal.cloud" 
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                  className="hover:text-white transition-colors duration-200"
-                >
-                    Tech Partner:   <span className='text-orange-500'>KAGAYAKI GLOBAL </span>
-               
-                </motion.a>
-            </motion.p>
+           
           </motion.div>
       </motion.div>
     </motion.footer>

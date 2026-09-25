@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import { ChevronLeft, ChevronRight } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
+import SectionHeader from '@/components/SectionHeader'
 
 const TestimonialCard = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -11,7 +12,8 @@ const TestimonialCard = () => {
       name: "Josephine Chibuike",
       role: "Virtual Assistant",
       company: "Professional Services",
-      quote: "Working with Godfrey has been transformative for my career. His technical expertise and guidance helped me build a professional portfolio that truly represents my brand. Highly recommended!",
+      project: "Portfolio Website",
+      quote: "Godfrey didn't just build me a website — he built me a brand presence. Clients now take me seriously before we even speak. The portfolio he delivered is clean, fast, and converts.",
       image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png"
     },
     {
@@ -19,7 +21,8 @@ const TestimonialCard = () => {
       name: "Racheal Sule",
       role: "Product Designer",
       company: "Design Studio",
-      quote: "Godfrey's attention to detail and ability to translate design concepts into functional code is exceptional. He delivered a stunning portfolio that exceeded all my expectations.",
+      project: "Portfolio Website",
+      quote: "As a designer, I notice every detail — and Godfrey got them all right. He translated my vision into pixel-perfect code and even improved interactions I hadn't thought of. Working with him felt effortless.",
       image: "/IMG_7452.PNG"
     },
     {
@@ -27,7 +30,8 @@ const TestimonialCard = () => {
       name: "CEO",
       role: "Founder",
       company: "Mike + MikePartners",
-      quote: "The real estate platform Godfrey built for us is robust, scalable, and user-friendly. His professionalism and technical skills are top-notch. A true software engineer!",
+      project: "Company Website",
+      quote: "Our firm needed a website that matched the quality of our work. Godfrey delivered a platform that presents our properties and projects with real professionalism — clients comment on it constantly.",
       image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/mikeandmike_r5as4d.png"
     },
     {
@@ -35,7 +39,8 @@ const TestimonialCard = () => {
       name: "Dr. Prophet Maseke Daniels",
       role: "Founder",
       company: "Maseke Daniel Ministries",
-      quote: "Godfrey developed an amazing mobile app and admin dashboard for our ministry. His dedication to quality and understanding of our needs made the project a huge success.",
+      project: "Website & Mobile App",
+      quote: "Godfrey built our ministry's website, mobile app and admin dashboard — and understood our mission from day one. Our members now connect with sermons and devotionals from anywhere. Truly excellent work.",
       image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/maseke_qdczyv.png"
     },
     {
@@ -43,7 +48,8 @@ const TestimonialCard = () => {
       name: "Director",
       role: "Founder",
       company: "MindfulYouth Hub",
-      quote: "The web and mobile platform Godfrey created for MindfulYouth Hub is exactly what we needed. His technical expertise and creative problem-solving are outstanding.",
+      project: "Web & Mobile Platform",
+      quote: "From courses to coaching tools, Godfrey turned our vision for young people into a working platform across web and mobile. He thinks beyond code — he thinks about the people using it.",
       image: "/mindfulyouth.png"
     },
     {
@@ -51,94 +57,100 @@ const TestimonialCard = () => {
       name: "Lead Pastor Elijah Amusan",
       role: "Lead Pastor",
       company: "Cornerstone Christian Centre",
-      quote: "Godfrey built a comprehensive church management system that has revolutionized how we operate. His technical skills and understanding of our ministry needs are exceptional.",
+      project: "Church Management System",
+      quote: "The system Godfrey built transformed how our church operates — giving, membership, devotionals, sermons, all in one place. He took time to understand ministry needs most developers would miss.",
       image: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518859/cornerstone-app_wvsai3.png"
+    },
+    {
+      id: 7,
+      name: "Founder",
+      role: "CEO",
+      company: "Gefyra Agency",
+      project: "Company Website",
+      quote: "Godfrey captured exactly what Gefyra stands for — a bridge between talent and business. The site is fast, elegant, and communicates our value clearly. He asks the right questions before writing a line of code.",
+      image: "/logo-mono.png"
+    },
+    {
+      id: 8,
+      name: "Product Lead",
+      role: "Engineering",
+      company: "Workbrook",
+      project: "Web & Mobile Platform",
+      quote: "Godfrey shipped full-stack features across our web and mobile apps with real ownership — work management, collaboration tools, real-time updates. Reliable, fast, and easy to work with.",
+      image: "/logo-mono.png"
+    },
+    {
+      id: 9,
+      name: "Founder",
+      role: "CEO",
+      company: "Altior CRM",
+      project: "CRM System",
+      quote: "Altior CRM handles our entire customer pipeline — contacts, leads, daily operations. Godfrey built a system that's both powerful and simple to use. It changed how our team works.",
+      image: "/logo-mono.png"
     }
   ]
+
+  const nextTestimonial = useCallback(() => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+  }, [testimonials.length])
+
+  const prevTestimonial = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
       nextTestimonial()
     }, 9000)
     return () => clearInterval(interval)
-  }, [])
-
-  const nextTestimonial = () => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
-  }
-
-  const prevTestimonial = () => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
-  }
+  }, [nextTestimonial])
 
   const currentTestimonial = testimonials[currentIndex]
 
   return (
-    <section className="py-20 lg:py-32 bg-gradient-to-b from-white to-amber-50/20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-20 left-10 w-2 h-2 bg-[#3d5a8c]/20 rounded-full animate-pulse" />
-        <div className="absolute bottom-20 right-10 w-3 h-3 bg-[#3d5a8c]/30 rounded-full animate-pulse [animation-delay:1s]" />
-        <div className="absolute top-1/2 left-1/4 w-1 h-1 bg-[#3d5a8c]/40 rounded-full animate-pulse [animation-delay:2s]" />
-      </div>
-
+    <section className="py-20 lg:py-28 bg-white dark:bg-[#0d0d0f] relative overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 lg:mb-20"
-        >
-          <span className="text-[#3d5a8c]/80 text-sm font-semibold tracking-wider uppercase bg-[#3d5a8c]/10 px-4 py-2 rounded-full mb-6 inline-block">
-            Testimonials
-          </span>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6"
-          >
-            What Clients Say
-          </motion.h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            Real feedback from real clients about the quality and dedication I bring to every project
-          </p>
-          <div className="w-32 h-1 bg-gradient-to-r from-[#3d5a8c] to-blue-600 mx-auto rounded-full" />
-        </motion.div>
+        <SectionHeader
+          eyebrow="Testimonials"
+          title="What Clients Say"
+          description="Real feedback from people I've built for — ministries, businesses and founders."
+        />
 
         {/* Testimonial Carousel */}
-        <div className="max-w-4xl mx-auto relative">
-          <motion.div 
+        <div className="max-w-3xl mx-auto relative">
+          <motion.div
             key={currentIndex}
-            initial={{ opacity: 0, x: 100 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -100 }}
-            transition={{ duration: 0.5 }}
-            className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-100"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
+            className="relative bg-gray-50 dark:bg-[#141414] rounded-3xl p-8 lg:p-12 border border-gray-200 dark:border-white/10"
           >
-            <div className="flex flex-col items-center text-center gap-8">
-              {/* Testimonial Content */}
-              <div className="flex-1">
-                <div className="mb-6">
-                  <span className="text-[#3d5a8c] text-sm font-semibold tracking-wide uppercase">
-                    Testimonial
-                  </span>
-                </div>
-                
-                <blockquote className="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8 font-medium">
-                  "{currentTestimonial.quote}"
-                </blockquote>
-                
-                <div className="space-y-2">
-                  <cite className="text-gray-900 font-bold text-lg lg:text-xl not-italic block">
-                    {currentTestimonial.name}
-                  </cite>
-                  <p className="text-gray-600 text-sm">
-                    {currentTestimonial.role} • {currentTestimonial.company}
-                  </p>
-                </div>
+            {/* Quote mark */}
+            <span className="absolute -top-5 left-8 grid h-11 w-11 place-items-center rounded-xl bg-gradient-to-br from-[#d4a017] to-[#b8860b] text-white shadow-lg shadow-[#d4a017]/25">
+              <Quote className="h-5 w-5" />
+            </span>
+
+            <blockquote className="text-lg lg:text-xl text-gray-700 dark:text-gray-200 leading-relaxed font-medium">
+              "{currentTestimonial.quote}"
+            </blockquote>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <img
+                src={currentTestimonial.image}
+                alt={currentTestimonial.name}
+                className="h-14 w-14 rounded-full object-cover ring-2 ring-[#d4a017]/30 bg-[#d4a017]/10"
+              />
+              <div>
+                <cite className="text-gray-900 dark:text-white font-bold not-italic block">
+                  {currentTestimonial.name}
+                </cite>
+                <p className="text-sm text-[#9a6f00] dark:text-[#e9c766] font-medium">
+                  {currentTestimonial.role} · {currentTestimonial.company}
+                </p>
               </div>
+              <span className="ml-auto hidden sm:inline-block rounded-full bg-[#3d5a8c]/10 dark:bg-[#8fb4e8]/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-[#3d5a8c] dark:text-[#8fb4e8]">
+                {currentTestimonial.project}
+              </span>
             </div>
           </motion.div>
 
@@ -146,7 +158,7 @@ const TestimonialCard = () => {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prevTestimonial}
-              className="w-12 h-12 rounded-full bg-[#3d5a8c] text-white flex items-center justify-center hover:bg-[#3d5a8c]/90 transition-all duration-300 hover:scale-110 shadow-lg"
+              className="w-12 h-12 rounded-full bg-gradient-to-r from-[#d4a017] to-[#b8860b] text-white flex items-center justify-center hover:brightness-95 transition-all duration-300 hover:scale-110 shadow-lg"
               aria-label="Previous testimonial"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -160,8 +172,8 @@ const TestimonialCard = () => {
                   onClick={() => setCurrentIndex(index)}
                   className={`w-3 h-3 rounded-full transition-all duration-300 ${
                     index === currentIndex
-                      ? 'bg-[#3d5a8c] scale-125'
-                      : 'bg-gray-300 hover:bg-gray-400'
+                      ? 'bg-[#d4a017] scale-125'
+                      : 'bg-gray-300 dark:bg-gray-700 hover:bg-gray-400 dark:bg-gray-600'
                   }`}
                   aria-label={`Go to testimonial ${index + 1}`}
                 />
@@ -170,7 +182,7 @@ const TestimonialCard = () => {
 
             <button
               onClick={nextTestimonial}
-              className="w-12 h-12 rounded-full bg-[#3d5a8c] text-white flex items-center justify-center hover:bg-[#3d5a8c]/90 transition-all duration-300 hover:scale-110 shadow-lg"
+              className="w-12 h-12 rounded-full bg-gradient-to-r from-[#d4a017] to-[#b8860b] text-white flex items-center justify-center hover:brightness-95 transition-all duration-300 hover:scale-110 shadow-lg"
               aria-label="Next testimonial"
             >
               <ChevronRight className="w-6 h-6" />

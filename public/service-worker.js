@@ -1,7 +1,18 @@
-const CACHE_NAME = 'godfrey-joseph-v1';
+const CACHE_NAME = 'godfrey-joseph-v3';
 const ASSETS_TO_CACHE = [
   '/',
   '/index.html',
+  '/logo-mono.png',
+  '/Hero-1.jpeg',
+  '/logos/altior.png',
+  '/logos/workbrook.png',
+  '/logos/gefyra.png',
+  '/logos/sheddie.png',
+  '/logos/mike-mike.png',
+  '/logos/light-bearers.png',
+  '/logos/cornerstone.png',
+  '/logos/gd.png',
+  '/logos/the-mindful.png',
   'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/odafe2_u6tgl5.jpg',
   'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518884/shop-with-davion_hjtrux.png',
   'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png',

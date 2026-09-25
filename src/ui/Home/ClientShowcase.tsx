@@ -95,13 +95,13 @@ const ClientShowcase: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-20 lg:py-24 bg-white">
+    <section className="py-16 sm:py-20 lg:py-24 bg-white dark:bg-[#141414]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center mb-12 lg:mb-16">
           <div className="inline-block">
-               <span className="text-[#3d5a8c]/80 text-sm font-semibold tracking-wider uppercase bg-[#3d5a8c]/10 px-4 py-2 rounded-full mb-6 inline-block">
+               <span className="text-[#9a6f00] dark:text-[#e9c766] text-sm font-semibold tracking-wider uppercase bg-[#d4a017]/10 px-4 py-2 rounded-full mb-6 inline-block">
              Additional Projects & Solutions
             </span>
           </div>
@@ -109,12 +109,12 @@ const ClientShowcase: React.FC = () => {
                      initial={{ opacity: 0, y: 20 }}
                      whileInView={{ opacity: 1, y: 0 }}
                      transition={{ duration: 0.6, delay: 0.1 }}
-                     className="text-4xl sm:text-5xl lg:text-5xl font-bold text-gray-900 mb-6"
+                     className="text-4xl sm:text-5xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-6"
                    >
                       Additional Projects & Solutions
                    </motion.h2>
           
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
             Real-world solutions I've built, from web applications and mobile apps to cloud infrastructure and digital transformation projects
           </p>
         </div>
@@ -139,7 +139,7 @@ const ClientShowcase: React.FC = () => {
                   <div className="text-white">
                     <h3 className="text-lg font-bold mb-1">{client.name}</h3>
                     <p className="text-sm text-gray-200 mb-2">{client.project}</p>
-                    <span className="text-xs font-medium bg-[#3d5a8c] px-2 py-1 rounded-full">
+                    <span className="text-xs font-medium bg-[#d4a017] text-white px-2 py-1 rounded-full">
                       {client.category}
                     </span>
                   </div>
@@ -151,7 +151,7 @@ const ClientShowcase: React.FC = () => {
 
         {/* Bottom CTA */}
         <div className="text-center mt-16">
-          {/* <button className="inline-flex items-center gap-3 bg-[#7d4934] hover:bg-[#7d4934]/90 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
+          {/* <button className="inline-flex items-center gap-3 bg-gradient-to-r from-[#d4a017] to-[#b8860b] hover:brightness-95 text-white px-8 py-4 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl">
             <span>View All Projects</span>
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

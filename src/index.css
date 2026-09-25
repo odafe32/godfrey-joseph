@@ -5,6 +5,14 @@
 @tailwind utilities;
 
 @layer base {
+  h1,
+  h2 {
+    font-family: 'Barlow Condensed', 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer base {
   :root {
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
@@ -12,7 +20,7 @@
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 218 45% 40%;
+    --primary: 43 80% 46%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 0%;
     --secondary-foreground: 0 0% 100%;
@@ -39,8 +47,8 @@
     --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
-    --primary: 218 45% 60%;
-    --primary-foreground: 0 0% 0%;
+    --primary: 43 85% 55%;
+    --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 100%;
     --secondary-foreground: 0 0% 0%;
     --muted: 0 0% 14.9%;

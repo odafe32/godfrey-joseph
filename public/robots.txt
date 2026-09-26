@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /admin
+Disallow: /admin/
+
+# Allow all public content
+Allow: /
+Allow: /products
+Allow: /learn
+Allow: /speaking
+
+# Sitemap
+Sitemap: https://www.odafegodfrey.com/sitemap.xml

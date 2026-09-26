@@ -33,6 +33,19 @@ function RouteChangeTracker() {
       sessionStorage.setItem('visitor_session', sessionId);
     }
 
+    // Manage robots meta tag: prevent crawlers from indexing admin pages
+    let robotsMeta = document.querySelector('meta[name="robots"]')
+    if (!robotsMeta) {
+      robotsMeta = document.createElement('meta')
+      robotsMeta.setAttribute('name', 'robots')
+      document.head.appendChild(robotsMeta)
+    }
+    if (pathname.startsWith('/admin')) {
+      robotsMeta.setAttribute('content', 'noindex, nofollow, noarchive')
+    } else {
+      robotsMeta.setAttribute('content', 'index, follow')
+    }
+
     // Ignore admin routes for analytics to keep data clean
     if (!pathname.startsWith('/admin')) {
       api('/track', {

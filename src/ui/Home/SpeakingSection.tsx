@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Mic2, Cpu, Briefcase, Route } from 'lucide-react';
 import PillButton from '@/components/PillButton';
 import SectionHeader from '@/components/SectionHeader';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -59,14 +60,16 @@ const SpeakingSection = () => {
             <div className="pointer-events-none absolute -top-16 -right-16 h-64 w-64 rounded-full bg-[#d4a017]/15 blur-3xl" />
 
             <div className="relative grid grid-cols-2 gap-4">
-              <img
+              <OptimizedImage
                 src="https://res.cloudinary.com/dllrkis3c/image/upload/v1790259524/694609330_1827068361599371_7400755334772390936_n_qsruuz.png"
                 alt="Godfrey speaking at an event"
+                widthLimit={800}
                 className="mt-10 aspect-[4/5] w-full rounded-3xl object-cover shadow-xl ring-1 ring-black/5 dark:ring-white/10"
               />
-              <img
+              <OptimizedImage
                 src="https://res.cloudinary.com/dllrkis3c/image/upload/v1790259527/695253885_1827068418266032_4378480762798642985_n_jcxaq2.png"
                 alt="Godfrey giving a talk"
+                widthLimit={800}
                 className="aspect-[4/5] w-full rounded-3xl object-cover shadow-xl ring-1 ring-black/5 dark:ring-white/10"
               />
             </div>

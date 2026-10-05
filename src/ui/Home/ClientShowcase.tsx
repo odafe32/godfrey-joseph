@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import OptimizedImage from '@/components/OptimizedImage';
 
 interface Client {
   name: string;
@@ -33,13 +34,6 @@ const ClientShowcase: React.FC = () => {
       category: "Full-Stack Development",
       link: "https://mikeandmikepartners.com/"
     },
-    // {
-    //   name: "Davion Wears",
-    //   logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518884/shop-with-davion_hjtrux.png",
-    //   project: "E-commerce Platform",
-    //   category: "E-commerce",
-    //   link: "https://shopwithdavion.com/"
-    // },
     {
       name: "Josephine Chibuike",
       logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png",
@@ -54,7 +48,6 @@ const ClientShowcase: React.FC = () => {
       category: "Full-Stack & Mobile Development",
       link: "https://cornerstoneglobal.org"
     },
-
     {
       name: "MindfulYouth Hub",
       logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771518881/mindfulyouth_ycaqgt.png",
@@ -69,7 +62,6 @@ const ClientShowcase: React.FC = () => {
       category: "Consulting Agency",
       link: "#"
     },
-    
     {
       name: "Lightbearers",
       logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1771523658/Screenshot_2026-02-19_185409_dfjytz.png",
@@ -77,21 +69,6 @@ const ClientShowcase: React.FC = () => {
       category: "Full-Stack Development",
       link: "https://lightbearers.vercel.app/"
     }, 
-    // { 
-    //   name: "Content Strategy",
-    //   logo: "/IMG_7449.JPG",
-    //   project: "Strategic Content Planning",
-    //   category: "Digital Marketing",
-    //   link: "#"
-    // },
-    // {
-    //   name: "Client's Testimony",
-    //      logo: "/IMG_7452.PNG",
-    //   project: "Testimony",
-    //   category: "Client Relations",
-    //   link: "#"
-    // },
-
   ];
 
   return (
@@ -122,12 +99,13 @@ const ClientShowcase: React.FC = () => {
         {/* Client Grid - Seamless Images */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-0">
           {clients.map((client) => (
-            <a href={client.link || "#"} target={client.link && client.link !== "#" ? "_blank" : "_self"} className="block group relative overflow-hidden">
+            <a key={client.name} href={client.link || "#"} target={client.link && client.link !== "#" ? "_blank" : "_self"} className="block group relative overflow-hidden">
               {/* Image Container - Full Size */}
               <div className="relative w-full h-64 aspect-square">
-                <img 
+                <OptimizedImage 
                   src={client.logo}
                   alt={`${client.name} project`}
+                  widthLimit={600}
                   className="w-full h-full object-cover"
                 />
                 

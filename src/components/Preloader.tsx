@@ -55,22 +55,24 @@ export function Preloader({
     if (imagesToPreload.length > 0) {
       let loadedCount = 0;
       imagesToPreload.forEach((src) => {
-        const img = new Image();
-        img.onload = () => {
+        let isDone = false;
+        const onItemDone = () => {
+          if (isDone) return;
+          isDone = true;
           loadedCount++;
-          if (loadedCount === imagesToPreload.length) {
+          if (loadedCount >= imagesToPreload.length) {
             areImagesLoaded = true;
             checkComplete();
           }
         };
-        img.onerror = () => {
-          loadedCount++; // Count errors too so we don't hang
-          if (loadedCount === imagesToPreload.length) {
-            areImagesLoaded = true;
-            checkComplete();
-          }
-        };
+
+        const img = new Image();
+        img.onload = onItemDone;
+        img.onerror = onItemDone;
         img.src = src;
+        if (img.complete) {
+          onItemDone();
+        }
       });
     }
 

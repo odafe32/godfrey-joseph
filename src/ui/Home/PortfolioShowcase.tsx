@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import PillButton from '@/components/PillButton';
+import OptimizedImage from '@/components/OptimizedImage';
 import { workCategories } from '@/data/works';
 import { useWorks } from '@/data/worksStore';
 
@@ -68,9 +69,10 @@ const PortfolioShowcase: React.FC = () => {
               >
                 {/* Image */}
                 <div className="relative h-52 overflow-hidden bg-gray-100 dark:bg-white/10">
-                  <img
+                  <OptimizedImage
                     src={project.image}
                     alt={project.title}
+                    widthLimit={700}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-3 left-3">

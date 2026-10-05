@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 import SectionHeader from '@/components/SectionHeader'
+import OptimizedImage from '@/components/OptimizedImage'
 
 const TestimonialCard = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -135,9 +136,10 @@ const TestimonialCard = () => {
             </blockquote>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <img
+              <OptimizedImage
                 src={currentTestimonial.image}
                 alt={currentTestimonial.name}
+                widthLimit={200}
                 className="h-14 w-14 rounded-full object-cover ring-2 ring-[#d4a017]/30 bg-[#d4a017]/10"
               />
               <div>

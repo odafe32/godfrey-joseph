@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Package, Users } from 'lucide-react';
 import PillButton from '@/components/PillButton';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 24 },
@@ -28,9 +29,10 @@ const KagayakiSection = () => {
               <div className="absolute -inset-3 translate-x-4 translate-y-4 rounded-3xl border-2 border-[#d4a017]/40" />
 
               <div className="relative overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/10">
-                <img
-                     src="https://res.cloudinary.com/dllrkis3c/image/upload/v1783156615/IMG-20260603-WA0048.jpg_ofcj2g.jpg"
+                <OptimizedImage
+                  src="https://res.cloudinary.com/dllrkis3c/image/upload/v1783156615/IMG-20260603-WA0048.jpg_ofcj2g.jpg"
                   alt="Godfrey Joseph — Founder of Kagayaki Global"
+                  widthLimit={900}
                   className="aspect-[4/5] w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0d0d0f]/60 via-transparent to-transparent" />

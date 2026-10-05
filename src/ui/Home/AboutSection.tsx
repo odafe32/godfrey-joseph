@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Code2, Compass, GraduationCap, Users, Mic } from 'lucide-react';
 import PillButton from '@/components/PillButton';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const pillars = [
   { icon: Code2, label: 'Build', text: 'Software & digital products' },
@@ -40,9 +41,10 @@ const AboutSection = () => {
           >
             {/* Offset gold frame */}
             <div aria-hidden className="absolute -inset-3 rounded-3xl border-2 border-[#d4a017]/30 rotate-2" />
-            <img
+            <OptimizedImage
               src="https://res.cloudinary.com/dllrkis3c/image/upload/v1783156615/IMG-20260603-WA0048.jpg_ofcj2g.jpg"
               alt="Godfrey Joseph Sule"
+              widthLimit={900}
               className="relative w-full h-[420px] lg:h-[500px] rounded-2xl object-cover object-top shadow-2xl"
             />
 

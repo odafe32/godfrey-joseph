@@ -1,9 +1,12 @@
-const CACHE_NAME = 'godfrey-joseph-v3';
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = 'godfrey-joseph-v4';
+const IMAGE_CACHE_NAME = 'godfrey-joseph-images-v4';
+
+// Critical core assets to pre-cache on install
+const STATIC_ASSETS = [
   '/',
   '/index.html',
   '/logo-mono.png',
-  '/Hero-1.jpeg',
+  '/hero-2.jpeg',
   '/logos/altior.png',
   '/logos/workbrook.png',
   '/logos/gefyra.png',
@@ -13,32 +16,29 @@ const ASSETS_TO_CACHE = [
   '/logos/cornerstone.png',
   '/logos/gd.png',
   '/logos/the-mindful.png',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/odafe2_u6tgl5.jpg',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518884/shop-with-davion_hjtrux.png',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518877/josephine-portfolio2_z8i2j0.png',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518859/cornerstone-app_wvsai3.png',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/mikeandmike_r5as4d.png',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518881/mindfulyouth_ycaqgt.png',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518882/movie-ai_sp6qce.png',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518883/movie-ai2_yzem9u.png',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518879/maseke_qdczyv.png',
-  'https://res.cloudinary.com/dllrkis3c/image/upload/v1771518878/logistics_rzklto.png',
-  '/davion-wears.png',
-  '/josephine-portfolio.png',
-  '/cornerstone-global.png',
-  '/mike-mikepartners.png',
-  '/mindfulyouth-hub.png'
+  '/cornerstone-app.png',
+  '/mikeandmike.png',
+  '/mindfulyouth.png',
+  '/maseke.png',
+  '/josephine-portfolio2.png'
 ];
 
-// Install event - cache assets
+// Install event - safe pre-caching without failing entire install on single asset error
 self.addEventListener('install', (event) => {
-  console.log('[Service Worker] Installing...');
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[Service Worker] Caching assets');
-      return cache.addAll(ASSETS_TO_CACHE).catch((err) => {
-        console.error('[Service Worker] Failed to cache some assets:', err);
-      });
+      // Cache each asset individually so one 404 does not reject the entire batch
+      return Promise.allSettled(
+        STATIC_ASSETS.map((url) =>
+          fetch(url, { cache: 'no-cache' })
+            .then((res) => {
+              if (res.ok) return cache.put(url, res);
+            })
+            .catch((err) => {
+              console.warn('[SW] Could not pre-cache:', url, err.message);
+            })
+        )
+      );
     })
   );
   self.skipWaiting();
@@ -46,57 +46,84 @@ self.addEventListener('install', (event) => {
 
 // Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activating...');
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('[Service Worker] Deleting old cache:', cacheName);
-            return caches.delete(cacheName);
+    caches.keys().then((keys) =>
+      Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME && key !== IMAGE_CACHE_NAME) {
+            return caches.delete(key);
           }
         })
-      );
-    })
+      )
+    )
   );
   self.clients.claim();
 });
 
-// Fetch event - serve from cache, fallback to network
+const isImageRequest = (url, destination) => {
+  return (
+    destination === 'image' ||
+    /\.(png|jpe?g|webp|avif|svg|gif|ico)(\?.*)?$/i.test(url) ||
+    url.includes('res.cloudinary.com')
+  );
+};
+
+// Fetch event
 self.addEventListener('fetch', (event) => {
+  const { request } = event;
+
+  // Ignore non-GET requests, non-http, and Chrome only-if-cached edge cases
+  if (
+    request.method !== 'GET' ||
+    !request.url.startsWith('http') ||
+    (request.cache === 'only-if-cached' && request.mode !== 'same-origin')
+  ) {
+    return;
+  }
+
+  // IMAGE STRATEGY: Cache-First with Network Fallback
+  if (isImageRequest(request.url, request.destination)) {
+    event.respondWith(
+      caches.open(IMAGE_CACHE_NAME).then(async (cache) => {
+        const cachedResponse = await cache.match(request);
+        if (cachedResponse) {
+          return cachedResponse;
+        }
+
+        try {
+          const networkResponse = await fetch(request);
+          // Cache successful same-origin or CORS responses (and opaque for cross-origin images)
+          if (networkResponse && (networkResponse.status === 200 || networkResponse.type === 'opaque')) {
+            cache.put(request, networkResponse.clone());
+          }
+          return networkResponse;
+        } catch (error) {
+          // If offline and image missing from cache, fallback to logo
+          const fallback = await cache.match('/logo-mono.png');
+          if (fallback) return fallback;
+          throw error;
+        }
+      })
+    );
+    return;
+  }
+
+  // DEFAULT ASSET STRATEGY: Stale-While-Revalidate
   event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        console.log('[Service Worker] Serving from cache:', event.request.url);
-        return cachedResponse;
-      }
+    caches.match(request).then((cachedResponse) => {
+      const fetchPromise = fetch(request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200 && networkResponse.type === 'basic') {
+            const responseToCache = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, responseToCache);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => cachedResponse);
 
-      // Clone the request
-      const fetchRequest = event.request.clone();
-
-      return fetch(fetchRequest).then((response) => {
-        // Check if valid response
-        if (!response || response.status !== 200 || response.type !== 'basic') {
-          return response;
-        }
-
-        // Clone the response
-        const responseToCache = response.clone();
-
-        // Cache images and static assets
-        if (
-          event.request.url.match(/\.(png|jpg|jpeg|svg|gif|webp|css|js|woff|woff2|ttf|eot)$/)
-        ) {
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
-        }
-
-        return response;
-      }).catch((error) => {
-        console.error('[Service Worker] Fetch failed:', error);
-        throw error;
-      });
+      return cachedResponse || fetchPromise;
     })
   );
 });

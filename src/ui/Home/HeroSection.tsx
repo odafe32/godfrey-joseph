@@ -95,6 +95,9 @@ export default function HeroSection() {
       <img
         src="/hero-2.jpeg"
         alt="Godfrey Joseph Sule"
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
         className="absolute inset-y-0 right-0 -z-10 h-full w-full object-cover object-[50%_18%] grayscale contrast-125 mix-blend-multiply [mask-image:linear-gradient(to_right,transparent,#000_38%)] lg:w-[62%]"
       />
 

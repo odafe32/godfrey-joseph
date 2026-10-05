@@ -140,7 +140,7 @@ const TestimonialCard = () => {
                 src={currentTestimonial.image}
                 alt={currentTestimonial.name}
                 widthLimit={200}
-                className="h-14 w-14 rounded-full object-cover ring-2 ring-[#d4a017]/30 bg-[#d4a017]/10"
+                className="h-14 w-14 shrink-0 rounded-full object-cover ring-2 ring-[#d4a017]/30 bg-[#d4a017]/10"
               />
               <div>
                 <cite className="text-gray-900 dark:text-white font-bold not-italic block">

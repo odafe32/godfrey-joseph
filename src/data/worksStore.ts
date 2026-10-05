@@ -1,6 +1,7 @@
 import { useSyncExternalStore } from "react";
 import { defaultWorks, type Work } from "./works";
 import { api } from "@/utils/api";
+import { optimizeImageUrl } from "@/utils/image";
 
 const STORE_KEY = "gj_works";
 const CHANGE_EVENT = "gj_works_changed";
@@ -9,6 +10,13 @@ let cached: Work[] | null = null;
 let fetching = false;
 
 const notify = () => window.dispatchEvent(new Event(CHANGE_EVENT));
+
+function normalizeWorks(works: Work[]): Work[] {
+  return works.map((w) => ({
+    ...w,
+    image: optimizeImageUrl(w.image, 800),
+  }));
+}
 
 function persist(works: Work[]) {
   try {
@@ -22,9 +30,9 @@ export function loadWorks(): Work[] {
   if (cached) return cached;
   try {
     const raw = localStorage.getItem(STORE_KEY);
-    cached = raw ? (JSON.parse(raw) as Work[]) : defaultWorks;
+    cached = normalizeWorks(raw ? (JSON.parse(raw) as Work[]) : defaultWorks);
   } catch {
-    cached = defaultWorks;
+    cached = normalizeWorks(defaultWorks);
   }
   return cached;
 }
@@ -35,8 +43,8 @@ export async function fetchWorks(): Promise<void> {
   fetching = true;
   try {
     const res = await api<{ data: Work[] }>("/works");
-    cached = res.data;
-    persist(res.data);
+    cached = normalizeWorks(res.data);
+    persist(cached);
     notify();
   } catch {
     // API offline — cached/localStorage data stays in use.

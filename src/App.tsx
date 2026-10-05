@@ -97,7 +97,11 @@ function App() {
             "/hero-2.jpeg",
             "/logos/altior.png",
             "/logos/workbrook.png",
-            "/logos/gefyra.png"
+            "/logos/gefyra.png",
+            "https://res.cloudinary.com/dllrkis3c/image/upload/f_auto,q_auto,w_800/v1783156615/IMG-20260603-WA0048.jpg_ofcj2g.jpg",
+            "https://res.cloudinary.com/dllrkis3c/image/upload/f_auto,q_auto,w_800/v1783155848/Screenshot_2026-07-04_100242_ehegmk.png",
+            "https://res.cloudinary.com/dllrkis3c/image/upload/f_auto,q_auto,w_800/v1771519269/ss_pdjcfj.png",
+            "https://res.cloudinary.com/dllrkis3c/image/upload/f_auto,q_auto,w_800/v1781540857/ARCHITECT_2-33_uesjdp.jpg"
           ]}
         />
       )}

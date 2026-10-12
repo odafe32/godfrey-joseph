@@ -74,14 +74,15 @@ export const defaultProducts: Product[] = [
   },
   {
     id: "kirocheck",
-    name: "Kirocheck",
-    tagline: "Checking & verification",
+    name: "KiroCheck",
+    tagline: "Asset accountability platform",
     description:
-      "A system for managing checks and verification workflows — built, shipped and in use.",
+      "Every asset, every movement, accounted for. Know what you own, where it is, who has it — and whether everything came back. Built for churches, schools, NGOs, production teams and businesses.",
     type: "software",
     status: "live",
     iconName: "clipboard-check",
     logo: "https://res.cloudinary.com/dllrkis3c/image/upload/v1790253100/kirocheck-icon_fs0fby.svg",
+    link: "https://kirocheck.odafegodfrey.com/",
     featured: true,
   },
   {
@@ -91,7 +92,7 @@ export const defaultProducts: Product[] = [
     description:
       "A complete inventory management system — stock tracking, reporting and day-to-day operations.",
     type: "software",
-    status: "live",
+    status: "in-development",
     iconName: "boxes",
     featured: true,
   },
